@@ -2,4 +2,4 @@
 .Rhistory
 .RData
 .Ruserdata
-tests/git_clone_*
+git_clone_*
