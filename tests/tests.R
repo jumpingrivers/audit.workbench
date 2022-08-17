@@ -29,22 +29,18 @@ test_that("Check if Python works via Reticulate",
           }, 4))
 
 # Testing if Git pull works
-testing_git_clone_directory_name = paste('git_clone_', sub(" ", "_", Sys.time()), sep =
-                                           '')
-git_terminal_command = paste(
-  "git clone",
-  "https://github.com/jumpingrivers/diffify.git",
-  testing_git_clone_directory_name,
-  "&& ls"
-)
-working_directory_contents_after_git_pull = system(git_terminal_command, intern =
-                                                     TRUE)
-test_that("Checking if Git pull works", {
-  expect_equal(
-    testing_git_clone_directory_name %in% working_directory_contents_after_git_pull,
+test_that("Checking if Git pull works",
+  expect_equal({
+    testing_git_clone_directory_name = paste('git_clone_', sub(" ", "_", Sys.time()), sep ='')
+    git_terminal_command = paste(
+      "git clone",
+      "https://github.com/jumpingrivers/diffify.git",
+      testing_git_clone_directory_name,
+      "&& ls")
+    working_directory_contents_after_git_pull = system(git_terminal_command, intern = TRUE)
+    testing_git_clone_directory_name %in% working_directory_contents_after_git_pull},
     TRUE
-  )
-})
+  ))
 #system("rm -rf testing_git_clone")
 
 # TODO Git push, which repo to push to?
