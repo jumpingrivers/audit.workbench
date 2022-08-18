@@ -4,11 +4,6 @@
 # It seems the same error occurs when we're testing using an R package.
 # Workaround solution: copy-and-paste into R Console.
 
-# Install package from CRAN only if not installed, and load the library
- if (!require(testthat))
-   install.packages('testthat', repos = 'https://packagemanager.rstudio.com/cran/__linux__/focal/latest')
-library(testthat)
-
 # Testing if R Console calculation
 test_that("Check if R calculation works", {
   expect_equal(2 + 2, 4)
