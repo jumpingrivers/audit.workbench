@@ -1,2 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 import('testthat')
+import('ggplot2')
+import('dplyr')
+import('Matrix')
+import('reticulate')
