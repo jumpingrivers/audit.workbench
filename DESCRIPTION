@@ -1,13 +1,12 @@
 Package: workbenchtest
 Type: Package
-Title: What the Package Does (Title Case)
+Title: RStudio/Workbench User Acceptance Tests
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Shane Halloran
+Maintainer: Shane Halloran <shane@jumpingrivers.com>
+Description: Testing whether data scientists can do what they expect in RStudio/Workbench.
+License: N/A
 Encoding: UTF-8
 LazyData: true
-Imports:
-    testthat
+Imports: 
+    testthat (>= 3.1.4)

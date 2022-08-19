@@ -5,8 +5,8 @@
 # Workaround solution: copy-and-paste into R Console.
 
 # Testing if R Console calculation
-test_that("Check if R calculation works", {
-  expect_equal(2 + 2, 4)
+testthat::test_that("Check if R calculation works", {
+  testthat::expect_equal(2 + 2, 4)
 })
 # 
 # # Testing if Python via Terminal works
@@ -52,21 +52,3 @@ test_that("Check if R calculation works", {
 #           })
 
 #TODO: install Python packages numpy and pandas
-
-#TODO: consider how/if we should use sudo rstudio-server verify-installation --verify-user=user
-
-#TODO qmd->HTML
-
-#TODO qmd->PDF (implicitly also tests for LaTeX)
-
-#TODO: Jupyter notebook: built-in verify-installation check
-
-#TODO: install a popular Bioconductor package
-
-#TODO: install an R package based on a Git repository
-
-#TODO: append a line (comment) to .Rprofile, and check that it has been modified
-
-#TODO: same with .Renviron
-
-#TODO: test creating a new file in the home directory
