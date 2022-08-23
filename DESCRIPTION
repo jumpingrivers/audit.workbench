@@ -8,9 +8,8 @@ Description: Testing whether data scientists can do what they expect in RStudio/
 License: Proprietary
 Encoding: UTF-8
 LazyData: true
-Imports:
-    testthat (>= 3.1.4),
-    dplyr (>= 1.0.9),
-    ggplot2 (>= 3.3.6),
-    Matrix (>= 1.4),
-    reticulate (>= 1.25)
+Suggests:
+    reticulate,
+    testthat (>= 3.0.0)
+RoxygenNote: 7.2.1
+Config/testthat/edition: 3
