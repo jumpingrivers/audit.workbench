@@ -4,3 +4,4 @@
 .RData
 .Ruserdata
 git_clone_*
+inst/test_files/notebook_files/*
