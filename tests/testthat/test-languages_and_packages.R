@@ -54,7 +54,7 @@ testthat::test_that(
   ),
   {
     install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF, repo = REPO_URL, quietly = TRUE)
-    testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF))
+    testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
     testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
     #TODO https://withr.r-lib.org/ to put state back
   }
