@@ -38,7 +38,7 @@ testthat::test_that("Git pull", {
   working_directory_contents_after_git_pull = system(git_terminal_command, intern = TRUE)
   testthat::expect_true(
     testing_git_clone_directory_name %in% working_directory_contents_after_git_pull
-  )# TODO: delete git_clone_* directories afterwards
+  )# TODO: delete git_clone_* directories afterwards. This approach? https://withr.r-lib.org/reference/with_tempfile.html#ref-usage
 })
 #system("rm -rf testing_git_clone")
 
@@ -56,7 +56,7 @@ testthat::test_that(
     install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF, repo = REPO_URL, quietly = TRUE)
     testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
     testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
-    #TODO https://withr.r-lib.org/ to put state back
+    #TODO https://withr.r-lib.org/ to put state back. This one? https://withr.r-lib.org/reference/with_package.html#ref-examples
   }
 )
 
