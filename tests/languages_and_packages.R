@@ -53,8 +53,7 @@ testthat::test_that(
   ),
   {
     install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF, repo = REPO_URL, quietly = TRUE)
-    testthat::expect_true(require(ggplot2))
-    testthat::expect_true(require(dplyr))
+    testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF))
     testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
   }
 )
