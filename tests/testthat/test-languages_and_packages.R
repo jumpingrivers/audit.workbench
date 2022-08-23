@@ -45,19 +45,25 @@ testthat::test_that("Git pull", {
 # TODO Git push, which repo to push to?
 
 #Installing an R package
-testthat::test_that(
-  paste(
-    "Installing R package: {",
-    R_PACKAGE_TO_TEST_INSTALLATION_OF,
-    "}",
-    sep = ''
-  ),
-  {
-    install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF, repo = REPO_URL, quietly = TRUE)
-    testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
-    testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
-    #TODO https://withr.r-lib.org/ to put state back. This one? https://withr.r-lib.org/reference/with_package.html#ref-examples
-  }
-)
+testthat::test_that(paste(
+  "Installing R package: {",
+  R_PACKAGE_TO_TEST_INSTALLATION_OF,
+  "}",
+  sep = ''
+),
+{
+  install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF,
+                   repo = REPO_URL,
+                   quietly = TRUE)
+  testthat::expect_true(
+    withr::with_package(package = R_PACKAGE_TO_TEST_INSTALLATION_OF, {
+      testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
+    },
+    logical.return = TRUE
+  ))
+  testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
+  testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
+  #TODO https://withr.r-lib.org/ to put state back. This one? https://withr.r-lib.org/reference/with_package.html#ref-examples
+})
 
 #TODO: install Python packages numpy and pandas
