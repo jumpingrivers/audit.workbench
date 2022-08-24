@@ -5,3 +5,4 @@
 .Ruserdata
 git_clone_*
 inst/test_files/notebook_files/*
+inst/test_files/*.tex
