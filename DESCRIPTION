@@ -12,7 +12,6 @@ License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests:
-    quarto,
     reticulate,
     testthat (>= 3.0.0),
     withr

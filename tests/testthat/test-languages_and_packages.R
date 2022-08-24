@@ -1,9 +1,3 @@
-# Important: best not use the 'Run Tests' button in RStudio IDE.
-# That button creates a vanilla R session without running startup scripts,
-# see https://github.com/rstudio/rstudio/issues/10246#issuecomment-994042496
-# It seems the same error occurs when we're testing using an R package.
-# Workaround solution: copy-and-paste into R Console.
-
 REPO_URL = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
 R_PACKAGE_TO_TEST_INSTALLATION_OF = "drat"
 
@@ -28,7 +22,7 @@ testthat::test_that("Python via Reticulate", {
 testthat::test_that("Git pull", {
   # URL of Git repository which we would like to test cloning of:
   GIT_CLONE_URL = "https://github.com/jumpingrivers/diffify.git"
-  
+
   #Current time, with spaces removed:
   current_time_no_spaces = gsub(" ", "", Sys.time())
   # Variable representing the path of the directory where we want git to save the
@@ -36,13 +30,13 @@ testthat::test_that("Git pull", {
   temporary_directory_which_will_contain_git_clone_directory = file.path(tempdir(), "git_clones")
   # Variable representing the name of the new subdirectory we would like to
   # clone into. This doesn't include the names of parent folders:
-  testing_git_clone_directory_name = paste("git_clones", current_time_no_spaces, sep="")
+  testing_git_clone_directory_name = paste("git_clones", current_time_no_spaces, sep = "")
   # The full path of the directory we would like to clone into:
   git_clone_directory_path = file.path(
     temporary_directory_which_will_contain_git_clone_directory,
     testing_git_clone_directory_name
   )
-  
+
   # Constructing the terminal command to clone our Git repository and then list
   # all files in the containing directory:
   git_terminal_command = paste(
@@ -53,9 +47,9 @@ testthat::test_that("Git pull", {
     temporary_directory_which_will_contain_git_clone_directory
   )
   if(!dir.exists(temporary_directory_which_will_contain_git_clone_directory)){dir.create(temporary_directory_which_will_contain_git_clone_directory)}
-  # withr::with_tempdir creates a temporary directory, which will be deleted when
-  # the session ends:
+  # withr::with_tempdir creates a temporary directory, which will be deleted when the session ends:
   withr::with_dir(temporary_directory_which_will_contain_git_clone_directory, {
+
     # Run the terminal command which clones the Git repository and returns the
     # list of all files in the containing directory:
     containing_directory_contents_after_git_pull = system(git_terminal_command, intern = TRUE)
@@ -68,7 +62,7 @@ testthat::test_that("Git pull", {
   })
 })
 
-# TODO Git push, which repo to push to?
+
 
 #Installing an R package
 testthat::test_that(paste(
@@ -89,7 +83,4 @@ testthat::test_that(paste(
   testthat::expect_true(package_loading_worked_correctly)
   testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
   testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
-  #TODO https://withr.r-lib.org/ to put state back. This one? https://withr.r-lib.org/reference/with_package.html#ref-examples
 })
-
-#TODO: install Python packages numpy and pandas
