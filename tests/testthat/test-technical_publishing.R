@@ -49,6 +49,7 @@ testthat::test_that(
 #If you're getting errors saying tex isn't installed, try:
 # install.packages('tinytex', type='source')
 # tinytex::install_tinytex()
+# And then you might need to restart your computer
 testthat::test_that(
   "qmd->PDF (via LaTeX) using Quarto. Assumes that we have already installed the extra Quarto CLI tools",
   {
