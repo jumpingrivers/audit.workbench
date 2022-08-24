@@ -14,7 +14,7 @@ LazyData: true
 Suggests:
     quarto,
     reticulate,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
     withr
 RoxygenNote: 7.2.1
 Config/testthat/edition: 3
