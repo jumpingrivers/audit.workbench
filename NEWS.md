@@ -1,3 +1,3 @@
-# {{ package_name }} 0.0.1 *2021-01-01*
+# workbenchtest 0.0.9001 *2022-08-24*
 
--   Initial commit
+-   Initial commit for development version
