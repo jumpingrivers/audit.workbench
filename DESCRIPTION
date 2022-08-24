@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Shane Halloran
 Maintainer: Shane Halloran <shane@jumpingrivers.com>
 Description: Testing whether data scientists can do what they expect in RStudio/Workbench.
-License: Proprietary
+License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests:
