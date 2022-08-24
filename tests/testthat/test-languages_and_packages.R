@@ -27,18 +27,20 @@ testthat::test_that("Python via Reticulate", {
 # Testing if Git pull works
 testthat::test_that("Git pull", {
   testthat::skip("Need to fix git pull test")
-  testing_git_clone_directory_name = paste('git_clone_', sub(" ", "_", Sys.time()), sep =
-                                             '')
+  testing_git_clone_directory_name = file.path(tempdir(), "git_clones", Sys.time())
   git_terminal_command = paste(
     "git clone",
     "https://github.com/jumpingrivers/diffify.git",
     testing_git_clone_directory_name,
     "&& ls"
   )
-  working_directory_contents_after_git_pull = system(git_terminal_command, intern = TRUE)
-  testthat::expect_true(
-    testing_git_clone_directory_name %in% working_directory_contents_after_git_pull
-  )# TODO: delete git_clone_* directories afterwards. This approach? https://withr.r-lib.org/reference/with_tempfile.html#ref-usage
+  withr::with_tempdir({
+    working_directory_contents_after_git_pull = system(git_terminal_command, intern = TRUE)
+    testthat::expect_true(
+      testing_git_clone_directory_name %in% working_directory_contents_after_git_pull
+    )
+  }, tmpdir = testing_git_clone_directory_name)
+  # TODO: delete git_clone_* directories afterwards. This approach? https://withr.r-lib.org/reference/with_tempfile.html#ref-usage
 })
 #system("rm -rf testing_git_clone")
 
@@ -55,12 +57,12 @@ testthat::test_that(paste(
   install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF,
                    repo = REPO_URL,
                    quietly = TRUE)
-  testthat::expect_true(
-    withr::with_package(package = R_PACKAGE_TO_TEST_INSTALLATION_OF, {
+    package_loading_worked_correctly = withr::with_package(package = R_PACKAGE_TO_TEST_INSTALLATION_OF, {
       testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
     },
     logical.return = TRUE
-  ))
+  )
+  testthat::expect_true(package_loading_worked_correctly)
   testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
   testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
   #TODO https://withr.r-lib.org/ to put state back. This one? https://withr.r-lib.org/reference/with_package.html#ref-examples
