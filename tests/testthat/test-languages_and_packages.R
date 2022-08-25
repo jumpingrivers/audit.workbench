@@ -62,8 +62,6 @@ testthat::test_that("Git pull", {
   })
 })
 
-
-
 #Installing an R package
 testthat::test_that(paste(
   "Installing R package: {",
@@ -83,4 +81,32 @@ testthat::test_that(paste(
   testthat::expect_true(package_loading_worked_correctly)
   testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
   testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
+})
+
+# Installing a Bioconductor package
+testthat::test_that("Bioconductor installation works", {
+  if (require(BiocManager)) {
+    BiocManager::install('graph', update = FALSE)
+  } else {
+    install.packages('BiocManager')
+    BiocManager::install('graph', update = FALSE)
+  }
+  testthat::expect_true(require(graph))
+})
+
+# Installing an R package from GitHub
+testthat::test_that("GitHub R package installation works", {
+  devtools::install_github("jumpingrivers/datasauRus")
+  testthat::expect_true(require(datasauRus))
+})
+
+# Is pip installed?
+testthat::test_that("Pip is installed", {
+  testthat::expect_true(as.integer(stringr::str_extract(processx::run("pip", "--version")$stdout, "[0-9]{2}")) >= 20)
+})
+
+# Installing a Python package
+testthat::test_that("Pip installation of pkg works", {
+  pkg = processx::run("pip", args = c("install", "numpy")) # can replace with something else
+  testthat::expect_true(stringr::str_detect(numpy$stdout, "Successfully installed"))
 })
