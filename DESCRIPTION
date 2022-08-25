@@ -12,7 +12,10 @@ License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests:
+    logr,
+    processx, 
     reticulate,
+    stringr,
     testthat (>= 3.0.0),
     withr
 RoxygenNote: 7.2.1
