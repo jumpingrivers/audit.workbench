@@ -11,13 +11,14 @@ Description: Testing whether data scientists can do what they expect in RStudio/
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+    processx,
+    withr
 Suggests:
     devtools,
     logr,
-    processx, 
     reticulate,
     stringr,
-    testthat (>= 3.0.0),
-    withr
+    testthat (>= 3.0.0)
 RoxygenNote: 7.2.1
 Config/testthat/edition: 3
