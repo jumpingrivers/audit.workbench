@@ -1,5 +1,5 @@
-REPO_URL = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
-R_PACKAGE_TO_TEST_INSTALLATION_OF = "drat"
+repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+r_package_to_install = "drat"
 
 # Testing if R Console calculation
 testthat::test_that("Check if R calculation works", {
@@ -14,27 +14,27 @@ testthat::test_that("Python calculation via Terminal works", {
 # Testing if Python via Reticulate works
 testthat::test_that("Python via Reticulate", {
   testthat::expect_true(require(reticulate, quietly = TRUE))
-  reticulate::py_run_string('x=2+2')
+  reticulate::py_run_string("x=2+2")
   testthat::expect_equal(reticulate::py$x, 4)
 })
 
 # Testing if Git pull works
 testthat::test_that("Git pull", {
   # URL of Git repository which we would like to test cloning of:
-  GIT_CLONE_URL = "https://github.com/jumpingrivers/diffify.git"
+  git_clone_url = "https://github.com/jumpingrivers/diffify.git"
 
   #Current time, with spaces removed:
   current_time_no_spaces = gsub(" ", "", Sys.time())
   # Variable representing the path of the directory where we want git to save the
   # cloned files on our machine:
-  temporary_directory_which_will_contain_git_clone_directory = file.path(tempdir(), "git_clones")
+  parent_of_temporary_clone = file.path(tempdir(), "git_clones")
   # Variable representing the name of the new subdirectory we would like to
   # clone into. This doesn't include the names of parent folders:
-  testing_git_clone_directory_name = paste("git_clones", current_time_no_spaces, sep = "")
+  clone_directory_name = paste("git_clones", current_time_no_spaces, sep = "")
   # The full path of the directory we would like to clone into:
   git_clone_directory_path = file.path(
-    temporary_directory_which_will_contain_git_clone_directory,
-    testing_git_clone_directory_name
+    parent_of_temporary_clone,
+    clone_directory_name
   )
 
   # Constructing the terminal command to clone our Git repository and then list
@@ -44,20 +44,22 @@ testthat::test_that("Git pull", {
     "https://github.com/jumpingrivers/diffify.git",
     git_clone_directory_path,
     "&& ls",
-    temporary_directory_which_will_contain_git_clone_directory
+    parent_of_temporary_clone
   )
-  if(!dir.exists(temporary_directory_which_will_contain_git_clone_directory)){dir.create(temporary_directory_which_will_contain_git_clone_directory)}
+  if (!dir.exists(parent_of_temporary_clone)) {
+    dir.create(parent_of_temporary_clone)
+    }
   # withr::with_tempdir creates a temporary directory, which will be deleted when the session ends:
-  withr::with_dir(temporary_directory_which_will_contain_git_clone_directory, {
+  withr::with_dir(parent_of_temporary_clone, {
 
     # Run the terminal command which clones the Git repository and returns the
     # list of all files in the containing directory:
-    containing_directory_contents_after_git_pull = system(git_terminal_command, intern = TRUE)
+    containing_ls_after_git_pull = system(git_terminal_command, intern = TRUE)
     # Assert that the cloned repository is where we expect it to be:
     print(paste("We are checking this directory contents listing:", list.files(getwd())))
-    print(paste("For these contents", testing_git_clone_directory_name))
+    print(paste("For these contents", clone_directory_name))
     testthat::expect_true(
-      testing_git_clone_directory_name %in% list.files(getwd())
+      clone_directory_name %in% list.files(getwd())
     )
   })
 })
@@ -65,31 +67,31 @@ testthat::test_that("Git pull", {
 #Installing an R package
 testthat::test_that(paste(
   "Installing R package: {",
-  R_PACKAGE_TO_TEST_INSTALLATION_OF,
+  r_package_to_install,
   "}",
-  sep = ''
+  sep = ""
 ),
 {
-  install.packages(R_PACKAGE_TO_TEST_INSTALLATION_OF,
-                   repo = REPO_URL,
+  install.packages(r_package_to_install,
+                   repo = repo_url,
                    quietly = TRUE)
-    package_loading_worked_correctly = withr::with_package(package = R_PACKAGE_TO_TEST_INSTALLATION_OF, {
-      testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
+    package_has_loaded = withr::with_package(package = r_package_to_install, {
+      testthat::expect_true(r_package_to_install %in% installed.packages()[, "Package"])
     },
     logical.return = TRUE
   )
-  testthat::expect_true(package_loading_worked_correctly)
-  testthat::expect_true(require(R_PACKAGE_TO_TEST_INSTALLATION_OF, character.only = TRUE))
-  testthat::expect_true(R_PACKAGE_TO_TEST_INSTALLATION_OF %in% installed.packages()[, "Package"])
+  testthat::expect_true(package_has_loaded)
+  testthat::expect_true(require(r_package_to_install, character.only = TRUE))
+  testthat::expect_true(r_package_to_install %in% installed.packages()[, "Package"])
 })
 
 # Installing a Bioconductor package
 testthat::test_that("Bioconductor installation works", {
   if (require(BiocManager)) {
-    BiocManager::install('graph', force = TRUE)
+    BiocManager::install("graph", force = TRUE)
   } else {
-    install.packages('BiocManager', repo = REPO_URL)
-    BiocManager::install('graph', force = TRUE)
+    install.packages("BiocManager", repo = repo_url)
+    BiocManager::install("graph", force = TRUE)
   }
   testthat::expect_true(require(graph))
 })
@@ -102,7 +104,9 @@ testthat::test_that("GitHub R package installation works", {
 
 # Is pip installed?
 testthat::test_that("Pip is installed", {
-  testthat::expect_true(as.integer(stringr::str_extract(processx::run("pip", "--version")$stdout, "[0-9]{2}")) >= 20)
+  testthat::expect_true(as.integer(stringr::str_extract(
+    processx::run("pip", "--version")$stdout, "[0-9]{2}"
+  )) >= 20)
 })
 
 # Installing a Python package
