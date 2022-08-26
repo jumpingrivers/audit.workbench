@@ -86,10 +86,10 @@ testthat::test_that(paste(
 # Installing a Bioconductor package
 testthat::test_that("Bioconductor installation works", {
   if (require(BiocManager)) {
-    BiocManager::install('graph', update = FALSE)
+    BiocManager::install('graph', force = TRUE)
   } else {
-    install.packages('BiocManager')
-    BiocManager::install('graph', update = FALSE)
+    install.packages('BiocManager', repo = REPO_URL)
+    BiocManager::install('graph', force = TRUE)
   }
   testthat::expect_true(require(graph))
 })
@@ -107,6 +107,6 @@ testthat::test_that("Pip is installed", {
 
 # Installing a Python package
 testthat::test_that("Pip installation of pkg works", {
-  pkg = processx::run("pip", args = c("install", "numpy")) # can replace with something else
+  numpy = processx::run("pip", args = c("install", "numpy", "--force-reinstall"))
   testthat::expect_true(stringr::str_detect(numpy$stdout, "Successfully installed"))
 })
