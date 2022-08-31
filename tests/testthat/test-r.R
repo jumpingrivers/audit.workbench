@@ -1,6 +1,3 @@
-repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
-pkgs = rownames(installed.packages())
-
 test_that("Check if R calculation works", {
   expect_equal(2 + 2, 4)
 })
@@ -13,6 +10,9 @@ test_that("Installing an R package", {
 })
 
 bioconductor_install = function() {
+  pkgs = rownames(installed.packages())
+  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+
   if (!("BiocManager" %in% pkgs)) {
     install.packages("BiocManager", repo = repo_url)
     withr::defer(remove.packages("BiocManager"))
@@ -23,6 +23,9 @@ bioconductor_install = function() {
 }
 
 github_install = function() {
+  pkgs = rownames(installed.packages())
+  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
+
   if (!("devtools" %in% pkgs)) {
     install.packages("devtools", repo = repo_url)
     withr::defer(remove.packages("devtools"))

@@ -9,4 +9,3 @@ clone_diffify = function() {
 
   return(success)
 }
-
