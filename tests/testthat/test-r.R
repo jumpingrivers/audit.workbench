@@ -4,6 +4,7 @@ test_that("Check if R calculation works", {
 
 
 test_that("Installing an R package", {
+  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
   install.packages("lubridate", repo = repo_url)
   withr::defer(remove.packages("lubridate"))
   expect_true(require("lubridate"))
