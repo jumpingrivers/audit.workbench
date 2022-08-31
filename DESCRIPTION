@@ -1,16 +1,12 @@
-Package: workbenchtest
 Type: Package
+Package: workbenchtest
 Title: RStudio/Workbench User Acceptance Tests
 Version: 0.0.9001
 Authors@R: 
-    person(given = "Jumping",
-           family = "Rivers",
-           role = c("aut", "cre"),
-           email = "info@jumpingrivers.com")
-Description: Testing whether data scientists can do what they expect in RStudio Workbench.
+    person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
+Description: Testing whether data scientists can do what they expect in
+    RStudio Workbench.
 License: file LICENSE
-Encoding: UTF-8
-LazyData: true
 Imports:
     processx,
     withr
@@ -20,5 +16,7 @@ Suggests:
     reticulate,
     stringr,
     testthat (>= 3.0.0)
-RoxygenNote: 7.2.1
 Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.1
