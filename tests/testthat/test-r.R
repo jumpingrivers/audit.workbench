@@ -4,18 +4,14 @@ test_that("Check if R calculation works", {
 
 
 test_that("Installing an R package", {
-  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
-  install.packages("lubridate", repo = repo_url)
+  install.packages("lubridate", repo = get_repo_url())
   withr::defer(remove.packages("lubridate"))
   expect_true(require("lubridate"))
 })
 
 bioconductor_install = function() {
-  pkgs = rownames(installed.packages())
-  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
-
-  if (!("BiocManager" %in% pkgs)) {
-    install.packages("BiocManager", repo = repo_url)
+  if (!("BiocManager" %in% rownames(installed.packages()))) {
+    install.packages("BiocManager", repo = get_repo_url())
     withr::defer(remove.packages("BiocManager"))
   }
   BiocManager::install("graph", force = TRUE)
@@ -24,11 +20,8 @@ bioconductor_install = function() {
 }
 
 github_install = function() {
-  pkgs = rownames(installed.packages())
-  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
-
-  if (!("devtools" %in% pkgs)) {
-    install.packages("devtools", repo = repo_url)
+  if (!("devtools" %in% rownames(installed.packages()))) {
+    install.packages("devtools", repo = get_repo_url())
     withr::defer(remove.packages("devtools"))
   }
   devtools::install_github("jumpingrivers/datasauRus")

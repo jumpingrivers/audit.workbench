@@ -3,11 +3,9 @@ testthat::test_that("Python calculation via Terminal works", {
 })
 
 testthat::test_that("Python via Reticulate", {
-  repo_url = "https://packagemanager.rstudio.com/cran/__linux__/focal/latest"
-  pkgs = rownames(installed.packages())
 
-  if (!("reticulate" %in% pkgs)) {
-    install.packages("reticulate", repo = repo_url)
+  if (!("reticulate" %in% rownames(installed.packages()))) {
+    install.packages("reticulate", repo = get_repo_url())
     withr::defer(remove.packages("reticulate"))
   }
 
