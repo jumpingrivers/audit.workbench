@@ -7,7 +7,7 @@ Authors@R:
            family = "Rivers",
            role = c("aut", "cre"),
            email = "info@jumpingrivers.com")
-Description: Testing whether data scientists can do what they expect in RStudio/Workbench.
+Description: Testing whether data scientists can do what they expect in RStudio Workbench.
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
