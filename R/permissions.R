@@ -1,7 +1,6 @@
 touch_file_succeeds = function(filepath) {
   file_location_normalized = normalizePath(filepath)
   status_from_touch = processx::run("touch", args = c(file_location_normalized))$status
-  return(status_from_touch==0)
   return(status_from_touch == 0)
 }
 
