@@ -1,8 +1,12 @@
+touch_file_succeeds = function(filepath) {
+  file_location_normalized = normalizePath(filepath)
+  status_from_touch = processx::run("touch", args = c(file_location_normalized))$status
+  return(status_from_touch==0)
+}
+
 get_permissions_of_file = function(filepath) {
   # We use normalisePath for tilde-expansion, since processx doesn't do this:
   file_location = normalizePath(filepath)
-  # We check that running touch on the file will not result in an error:
-  testthat::expect_equal(processx::run("touch", args = c(file_location))$status, 0)
   # The command to check, in octal form, what are the permissions of the file:
   check_permission = processx::run("stat", args = c("-c", "'%a", file_location))
   # Obtain the stdout of the command:
