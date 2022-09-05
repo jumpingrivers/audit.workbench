@@ -9,6 +9,7 @@ get_permissions_of_file = function(filepath) {
   normalized_filepath = normalizePath(filepath)
   # The command to check, in octal form, what are the permissions of the file:
   permissions_on_file = file.mode(normalized_filepath)
+  # Convert the string to an integer, so that we can use it to make comparisons:
   permissions_on_file_int = strtoi(permissions_on_file)
   return(permissions_on_file_int)
 }
