@@ -1,7 +1,7 @@
 Type: Package
 Package: workbenchtest
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.0.9001
+Version: 0.1.0
 Authors@R: 
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
