@@ -1,22 +1,21 @@
 Type: Package
 Package: workbenchtest
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
     RStudio Workbench.
 License: file LICENSE
 Imports:
-    utils
-Suggests:
+    fs,
     processx,
-    quarto,
-    remotes,
-    reticulate,
-    stringr,
-    testthat (>= 3.0.0),
+    utils,
     withr
+Suggests:
+    quarto,
+    reticulate,
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true

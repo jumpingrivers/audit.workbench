@@ -4,6 +4,7 @@ quarto_doc_tests = function(doc) {
 
   #Check that the rendered document is greater than a certain number of bytes:
   testthat::expect_true(file.info(doc)$size > 100)
+  return(invisible(NULL))
 }
 
 testthat::test_that(

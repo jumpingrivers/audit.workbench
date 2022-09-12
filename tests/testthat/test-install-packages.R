@@ -10,6 +10,8 @@ test_that("Installing a CRAN package", {
   lapply(options("repos")$repos, message)
   pkg_name = "drat"
   expect_true(install_packages(pkg_name, quiet = TRUE))
+
+  expect_false(install_packages("this.pkg.does.not.exist99", quiet = TRUE))
 })
 
 test_that("Installing a Github package", {
