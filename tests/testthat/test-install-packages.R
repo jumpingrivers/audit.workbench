@@ -11,7 +11,8 @@ test_that("Installing a CRAN package", {
   pkg_name = "drat"
   expect_true(install_packages(pkg_name, quiet = TRUE))
 
-  expect_false(install_packages("this.pkg.does.not.exist99", quiet = TRUE))
+  is_installed = suppressWarnings(install_packages("this.pkg.does.not.exist99", quiet = TRUE))
+  expect_false(is_installed)
 })
 
 test_that("Installing a Github package", {
