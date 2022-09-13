@@ -5,7 +5,7 @@ testthat::test_that("Python calculation via Terminal works", {
 testthat::test_that("Python via Reticulate", {
 
   if (!("reticulate" %in% rownames(installed.packages()))) {
-    install.packages("reticulate", repo = get_repo_url())
+    install.packages("reticulate")
     withr::defer(remove.packages("reticulate"))
   }
 

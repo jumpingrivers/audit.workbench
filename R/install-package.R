@@ -1,6 +1,5 @@
-get_repo_url = function() {
-  return("https://packagemanager.rstudio.com/cran/__linux__/focal/latest")
-}
+source("~/.Rprofile")
+source("~/.Renviron")
 
 install_packages = function(pkgs, quiet = FALSE) {
   e = NULL
