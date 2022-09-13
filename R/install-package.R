@@ -1,6 +1,3 @@
-source("~/.Rprofile")
-source("~/.Renviron")
-
 install_packages = function(pkgs, quiet = FALSE) {
   e = NULL
   capture = function(e) e <<- e #nolint
