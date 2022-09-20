@@ -5,7 +5,7 @@ testthat::test_that("Python calculation via Terminal works", {
 testthat::test_that("Python via Reticulate", {
 
   if (!("reticulate" %in% rownames(installed.packages()))) {
-    install.packages("reticulate", repo = get_repo_url())
+    install.packages("reticulate")
     withr::defer(remove.packages("reticulate"))
   }
 
@@ -14,19 +14,11 @@ testthat::test_that("Python via Reticulate", {
 })
 
 testthat::test_that("Pip is installed", {
-  pip_version =
-    processx::run("pip", "--version")$stdout |>
-    stringr::str_extract("[0-9]{2}") %>%
-    as.integer()
-
-  testthat::expect_true(pip_version >= 20)
+  pip_version = processx::run("pip", "--version")$stdout
+  # Min pip version > 20
+  min_version = grepl("pip [2-3][0-9]", pip_version)
+  testthat::expect_true(min_version)
 })
-
-pip_install = function() {
-  numpy = processx::run("pip", args = c("install", "numpy", "--force-reinstall"))
-  withr::defer(processx::run("pip", args = c("uninstall", "numpy", "--yes")))
-  return(stringr::str_detect(numpy$stdout, "Successfully installed"))
-}
 
 # Installing a Python package
 testthat::test_that("Pip installation of pkg works", {
