@@ -1,3 +1,7 @@
+# jrHealthCheckWorkbench 0.2.0 *2022-01-04*
+- feat: Moving to new structure
+- feat: Pkg name change
+
 # workbenchtest 0.1.2 *2022-09-12*
 - refac: trim back dependencies
 - chore: rename R/ files to match tests/ files
