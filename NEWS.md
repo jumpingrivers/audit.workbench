@@ -1,3 +1,6 @@
+# jrHealthCheckWorkbench 0.2.1 *2022-03-18*
+- feat: Check for core R pkgs
+
 # jrHealthCheckWorkbench 0.2.0 *2022-01-04*
 - feat: Moving to new structure
 - feat: Pkg name change
