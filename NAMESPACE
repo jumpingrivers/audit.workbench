@@ -2,6 +2,7 @@
 
 export(check)
 export(check_bioconductor)
+export(check_core_r_pkgs)
 export(check_cran)
 export(check_file_permissions)
 export(check_git_cloning)
