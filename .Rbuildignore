@@ -8,3 +8,4 @@ _files$
 ^CODEOWNERS$
 docs
 /rsconnect/
+^config-uat-psw\.yml$

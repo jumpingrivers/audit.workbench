@@ -4,34 +4,32 @@
 #' To skip tests, set check to `no` in the config yaml file.
 #' See `create_config()`
 #' @param server Posit Workbench server. If NULL, use the ENV variable WORKBENCH_SERVER
-#' @param token Posit Workbenc API token. If NULL, use the ENV variable WORKBENCH_API_KEY
 #' @param dir directory location of the the config file
 #' @param file config file name
+#' @param debug_level Integer, 0 to 2.
+#'
+#' @details
+#' Debug level description
+#'  * 0: clean-up all files; suppress all noise
+#'  * 1: clean-up all files, but display build steps
+#'  * 2: No clean-up and display build steps
 #' @importFrom rlang .data
 #' @export
-check = function(server = NULL, token = NULL,
-                 dir = ".", file = "config-uat.yml") {
+check = function(server = NULL,
+                 dir = ".", file = "config-uat-psw.yml",
+                 debug_level = 0:2) {
+  debug_level = uatBase::get_debug_level(force(debug_level))
 
+  check_list = list()
+  if (!is.null(server))
+    check_list$server_headers = serverHeaders::check(server)
+  check_list$sys_deps = check_sys_libs(debug_level)
+  check_list$pro_drivers = check_posit_drivers(debug_level)
   cli::cli_h2("Starting checks")
-  r6_inits = init_r6_checks(dir = dir, file = file)
-  lapply(r6_inits, function(r6) r6$check())
+  r6_inits = uatBase::init_r6_checks(dir = dir,
+                                     file = file,
+                                     pkg_name = "jrHealthCheckWorkbench")
+  lapply(r6_inits, function(r6) r6$check(debug_level = debug_level))
   results = purrr::map_dfr(r6_inits, ~.x$get_log())
   dplyr::arrange(results, .data$group, .data$short)
-}
-
-init_r6_checks = function(dir, file) {
-  exports = getNamespaceExports("jrHealthCheckWorkbench")
-  check_exports = sort(exports[stringr::str_starts(exports, "check_")])
-  r6_inits = lapply(check_exports, init_r6_check, dir = dir, file = file)
-  r6_inits
-}
-
-init_r6_check = function(export, dir, file) {
-  obj = eval(parse(text = export))
-  if (inherits(obj, "R6ClassGenerator")) {
-    obj = obj$new(dir, file)
-  } else {
-    obj = NULL
-  }
-  return(obj)
 }

@@ -4,11 +4,12 @@
 #' @export
 check_file_permissions = R6::R6Class(
   "check_file_permissions",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
     #' @description Checks deployment of a Plumber API
-    check = function() {
-      private$checker(testing_file_permissions())
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(testing_file_permissions(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -19,7 +20,7 @@ check_file_permissions = R6::R6Class(
   )
 )
 
-testing_file_permissions = function() {
+testing_file_permissions = function(debug_level) {
   fname = file.path("~", "tmp-file-creating.txt")
   withr::with_file(fname, {
     fs::file_create(fname)
