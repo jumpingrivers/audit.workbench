@@ -4,11 +4,12 @@
 #' @export
 check_python_pip = R6::R6Class(
   "check_python",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
     #' @description Checks python pip install
-    check = function() {
-      private$checker(python_pip_tests())
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(python_pip_tests(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -25,11 +26,12 @@ check_python_pip = R6::R6Class(
 #' @export
 check_python_reticulate = R6::R6Class(
   "check_python",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
     #' @description Checks python can be used via reticulate
-    check = function() {
-      private$checker(python_reticulate_tests())
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(python_reticulate_tests(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -40,7 +42,7 @@ check_python_reticulate = R6::R6Class(
   )
 )
 
-python_pip_tests = function() {
+python_pip_tests = function(debug_level) {
   system('python3 -c "print(2+2)"', intern = TRUE)
 
   pip_version = processx::run("pip", "--version")$stdout
@@ -54,7 +56,7 @@ python_pip_tests = function() {
   return(invisible(TRUE))
 }
 
-python_reticulate_tests = function() {
+python_reticulate_tests = function(debug_level) {
 
   if (!requireNamespace("reticulate", quietly = TRUE)) {
     utils::install.packages("reticulate")

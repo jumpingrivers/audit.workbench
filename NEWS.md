@@ -1,3 +1,6 @@
+# jrHealthCheckWorkbench 0.2.2 *2022-03-20*
+- refactor: Use {uatBase}
+
 # jrHealthCheckWorkbench 0.2.1 *2022-03-18*
 - feat: Check for core R pkgs
 

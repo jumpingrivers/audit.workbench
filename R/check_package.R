@@ -1,14 +1,18 @@
 #' R6 classes
 #'
 #' Check classes
+#'
+#' @aliases check_quarto_beamer check_quarto_docx
+#' @aliases check_quarto_html check_quarto_observable check_quarto_pdf
 #' @export
 check_cran = R6::R6Class(
   "check_cran",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
     #' @description Installs a package from CRAN
-    check = function() {
-      private$checker(testing_cran())
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(testing_cran(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -25,11 +29,12 @@ check_cran = R6::R6Class(
 #' @export
 check_bioconductor = R6::R6Class(
   "check_bioconductor",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
     #' @description Checks that bioconductor URLs are accessible
-    check = function() {
-      private$checker(testing_bioconductor())
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(testing_bioconductor(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -46,11 +51,12 @@ check_bioconductor = R6::R6Class(
 #' @export
 check_github = R6::R6Class(
   "check_github",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
-    #' @description Checks installs a package from github
-    check = function() {
-      private$checker(testing_github())
+    #' @description Checks installs a package from github#
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(testing_github(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -62,21 +68,21 @@ check_github = R6::R6Class(
 )
 
 
-testing_cran = function() {
+testing_cran = function(debug_level) {
   pkg_name = "drat"
   is_installed = install_packages(pkg_name, quiet = TRUE)
   stopifnot("pkg unable to be installed" = is_installed)
   return(invisible(TRUE))
 }
 
-testing_github = function() {
+testing_github = function(debug_level) {
   installed_pkg = remotes::install_github("jumpingrivers/datasauRus",
                                           quiet = TRUE, force = TRUE)
   stopifnot(installed_pkg == "datasauRus")
   return(invisible(TRUE))
 }
 
-testing_bioconductor = function() {
+testing_bioconductor = function(debug_level) {
   # Can we access the bioconductor repos
   # Repo 5 is bioconductor, but doesn't work!
   # Installing a bioconductor pkg is slowwww

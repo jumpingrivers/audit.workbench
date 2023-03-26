@@ -5,11 +5,12 @@
 #' @export
 check_core_r_pkgs = R6::R6Class(
   "check_core_r_pkgs",
-  inherit = base_check,
+  inherit = uatBase::base_check,
   public = list(
     #' @description Test for core R packages
-    check = function() {
-      private$checker(testing_core_r_pkgs())
+    #' @param debug_level See check() for details
+    check = function(debug_level) {
+      private$checker(testing_core_r_pkgs(debug_level))
       return(invisible(NULL))
     }
   ),
@@ -20,7 +21,7 @@ check_core_r_pkgs = R6::R6Class(
   )
 )
 
-testing_core_r_pkgs = function() {
+testing_core_r_pkgs = function(debug_level) {
   core_r_pkgs = rstudioapi::getRStudioPackageDependencies()$name
   in_pkgs = utils::installed.packages()
   missing_r_pkgs = core_r_pkgs[!(core_r_pkgs %in% rownames(in_pkgs))]

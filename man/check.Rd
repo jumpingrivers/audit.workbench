@@ -4,19 +4,25 @@
 \alias{check}
 \title{Run UAT Checks}
 \usage{
-check(server = NULL, token = NULL, dir = ".", file = "config-uat.yml")
+check(server = NULL, dir = ".", file = "config-uat-psw.yml", debug_level = 0:2)
 }
 \arguments{
 \item{server}{Posit Workbench server. If NULL, use the ENV variable WORKBENCH_SERVER}
 
-\item{token}{Posit Workbenc API token. If NULL, use the ENV variable WORKBENCH_API_KEY}
-
 \item{dir}{directory location of the the config file}
 
 \item{file}{config file name}
+
+\item{debug_level}{Integer, 0 to 2.}
 }
 \description{
 This functions runs all UAT tests.
 To skip tests, set check to `no` in the config yaml file.
 See `create_config()`
+}
+\details{
+Debug level description
+ * 0: clean-up all files; suppress all noise
+ * 1: clean-up all files, but display build steps
+ * 2: No clean-up and display build steps
 }

@@ -13,7 +13,7 @@ Checks that core R packages are pre-installed as described in
 https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html
 }
 \section{Super classes}{
-\code{jrHealthCheckWorkbench::logger} -> \code{jrHealthCheckWorkbench::base_check} -> \code{check_core_r_pkgs}
+\code{\link[uatBase:logger]{uatBase::logger}} -> \code{\link[uatBase:base_check]{uatBase::base_check}} -> \code{check_core_r_pkgs}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -25,11 +25,11 @@ https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html
 \if{html}{\out{
 <details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="jrHealthCheckWorkbench" data-topic="logger" data-id="get_log"><a href='../../jrHealthCheckWorkbench/html/logger.html#method-logger-get_log'><code>jrHealthCheckWorkbench::logger$get_log()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="jrHealthCheckWorkbench" data-topic="logger" data-id="start_logger"><a href='../../jrHealthCheckWorkbench/html/logger.html#method-logger-start_logger'><code>jrHealthCheckWorkbench::logger$start_logger()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="jrHealthCheckWorkbench" data-topic="logger" data-id="stop_logger"><a href='../../jrHealthCheckWorkbench/html/logger.html#method-logger-stop_logger'><code>jrHealthCheckWorkbench::logger$stop_logger()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="jrHealthCheckWorkbench" data-topic="base_check" data-id="info"><a href='../../jrHealthCheckWorkbench/html/base_check.html#method-base_check-info'><code>jrHealthCheckWorkbench::base_check$info()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="jrHealthCheckWorkbench" data-topic="base_check" data-id="initialize"><a href='../../jrHealthCheckWorkbench/html/base_check.html#method-base_check-initialize'><code>jrHealthCheckWorkbench::base_check$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="uatBase" data-topic="logger" data-id="get_log"><a href='../../uatBase/html/logger.html#method-logger-get_log'><code>uatBase::logger$get_log()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="uatBase" data-topic="logger" data-id="start_logger"><a href='../../uatBase/html/logger.html#method-logger-start_logger'><code>uatBase::logger$start_logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="uatBase" data-topic="logger" data-id="stop_logger"><a href='../../uatBase/html/logger.html#method-logger-stop_logger'><code>uatBase::logger$stop_logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="uatBase" data-topic="base_check" data-id="info"><a href='../../uatBase/html/base_check.html#method-base_check-info'><code>uatBase::base_check$info()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="uatBase" data-topic="base_check" data-id="initialize"><a href='../../uatBase/html/base_check.html#method-base_check-initialize'><code>uatBase::base_check$initialize()</code></a></span></li>
 </ul>
 </details>
 }}
@@ -39,9 +39,16 @@ https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html
 \subsection{Method \code{check()}}{
 Test for core R packages
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{check_core_r_pkgs$check()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{check_core_r_pkgs$check(debug_level)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{debug_level}}{See check() for details}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-check_core_r_pkgs-clone"></a>}}
