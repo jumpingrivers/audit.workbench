@@ -4,14 +4,12 @@
 \alias{check}
 \title{Run UAT Checks}
 \usage{
-check(server = NULL, dir = ".", file = "config-uat-psw.yml", debug_level = 0:2)
+check(server, dir = ".", debug_level = 0:2)
 }
 \arguments{
 \item{server}{Posit Workbench server. If NULL, use the ENV variable WORKBENCH_SERVER}
 
 \item{dir}{directory location of the the config file}
-
-\item{file}{config file name}
 
 \item{debug_level}{Integer, 0 to 2.}
 }

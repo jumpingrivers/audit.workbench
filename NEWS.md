@@ -1,3 +1,6 @@
+# jrHealthCheckWorkbench 0.2.3 *2022-03-26*
+- fix: Pass config file name to R6 objects
+
 # jrHealthCheckWorkbench 0.2.2 *2022-03-20*
 - refactor: Use {uatBase}
 
