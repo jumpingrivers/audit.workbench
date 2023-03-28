@@ -16,7 +16,6 @@ for (type in types) {
     inherit = uatBase::base_check,
     public = list(
       check = function(debug_level) {
-        message(private$short)
         rmd_dir = system.file("extdata", private$group, private$short,
                               package = "uatBase", mustWork = TRUE)
         private$checker(
