@@ -22,6 +22,7 @@ check = function(server,
   check_list = list()
   check_list$server_headers = serverHeaders::check(server)
   check_list$sys_deps = check_sys_libs(debug_level)
+  check_list$software = check_software(debug_level)
   check_list$pro_drivers = check_posit_drivers(debug_level)
   cli::cli_h2("Starting checks")
   r6_inits = uatBase::init_r6_checks(dir = dir,
