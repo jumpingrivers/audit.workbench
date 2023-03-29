@@ -1,3 +1,6 @@
+# jrHealthCheckWorkbench 0.2.4 *2022-03-29*
+- feat: Check R/Python/Quarto versions
+
 # jrHealthCheckWorkbench 0.2.3 *2022-03-26*
 - fix: Pass config file name to R6 objects
 
