@@ -10,13 +10,14 @@ check_posit_drivers = function(debug_level) {
   } else {
     installed_version = NA_character_
   }
-  version = "2022.11.0"
+  latest_version = "2022.11.0"
   upgrade = is.na(installed_version) ||
-    (package_version(installed_version) < package_version(version))
+    (package_version(installed_version) < package_version(latest_version))
   installed = tibble::tibble(
-    software = "pro-drivers",
+    software = "Posit pro-drivers",
     installed_version = installed_version,
     upgrade = upgrade,
-    version = version)
+    version = latest_version)
   uatBase::print_colour_versions(installed)
+  return(installed)
 }

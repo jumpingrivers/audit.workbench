@@ -7,6 +7,7 @@
 \alias{check_quarto_html}
 \alias{check_quarto_observable}
 \alias{check_quarto_pdf}
+\alias{check_quarto_rsvg_convert}
 \title{R6 classes}
 \description{
 R6 classes

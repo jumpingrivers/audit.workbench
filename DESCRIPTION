@@ -1,7 +1,7 @@
 Type: Package
 Package: jrHealthCheckWorkbench
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: 
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
@@ -24,7 +24,7 @@ Imports:
     serverHeaders,
     stringr,
     tibble,
-    uatBase,
+    uatBase (>= 0.1.1),
     utils,
     withr,
     yaml

@@ -3,10 +3,10 @@
 #' @rawNamespace export(check_quarto_html)
 #' @rawNamespace export(check_quarto_observable)
 #' @rawNamespace export(check_quarto_pdf)
+#' @rawNamespace export(check_quarto_rsvg_convert)
 NULL
-types = c("beamer", "docx", "html", "observable", "pdf")
+types = c("beamer", "docx", "html", "observable", "pdf", "rsvg_convert")
 for (type in types) {
-
   assign(
     paste0("check_quarto_", type),
     R6::R6Class(

@@ -4,6 +4,7 @@
 #'
 #' @aliases check_quarto_beamer check_quarto_docx
 #' @aliases check_quarto_html check_quarto_observable check_quarto_pdf
+#' @aliases check_quarto_rsvg_convert
 #' @export
 check_cran = R6::R6Class(
   "check_cran",
