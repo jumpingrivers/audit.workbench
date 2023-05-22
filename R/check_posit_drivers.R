@@ -18,6 +18,6 @@ check_posit_drivers = function(debug_level) {
     installed_version = installed_version,
     upgrade = upgrade,
     version = latest_version)
-  uatBase::print_colour_versions(installed)
+  audit.base::print_colour_versions(installed)
   return(installed)
 }

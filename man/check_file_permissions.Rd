@@ -12,7 +12,7 @@ R6 classes
 Check classes
 }
 \section{Super classes}{
-\code{\link[uatBase:logger]{uatBase::logger}} -> \code{\link[uatBase:base_check]{uatBase::base_check}} -> \code{check_file_permissions}
+\code{\link[audit.base:logger]{audit.base::logger}} -> \code{\link[audit.base:base_check]{audit.base::base_check}} -> \code{check_file_permissions}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -24,11 +24,11 @@ Check classes
 \if{html}{\out{
 <details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="uatBase" data-topic="logger" data-id="get_log"><a href='../../uatBase/html/logger.html#method-logger-get_log'><code>uatBase::logger$get_log()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="uatBase" data-topic="logger" data-id="start_logger"><a href='../../uatBase/html/logger.html#method-logger-start_logger'><code>uatBase::logger$start_logger()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="uatBase" data-topic="logger" data-id="stop_logger"><a href='../../uatBase/html/logger.html#method-logger-stop_logger'><code>uatBase::logger$stop_logger()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="uatBase" data-topic="base_check" data-id="info"><a href='../../uatBase/html/base_check.html#method-base_check-info'><code>uatBase::base_check$info()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="uatBase" data-topic="base_check" data-id="initialize"><a href='../../uatBase/html/base_check.html#method-base_check-initialize'><code>uatBase::base_check$initialize()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="get_log"><a href='../../audit.base/html/logger.html#method-logger-get_log'><code>audit.base::logger$get_log()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="start_logger"><a href='../../audit.base/html/logger.html#method-logger-start_logger'><code>audit.base::logger$start_logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="stop_logger"><a href='../../audit.base/html/logger.html#method-logger-stop_logger'><code>audit.base::logger$stop_logger()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="info"><a href='../../audit.base/html/base_check.html#method-base_check-info'><code>audit.base::base_check$info()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="initialize"><a href='../../audit.base/html/base_check.html#method-base_check-initialize'><code>audit.base::base_check$initialize()</code></a></span></li>
 </ul>
 </details>
 }}

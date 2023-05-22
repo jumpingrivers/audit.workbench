@@ -5,7 +5,7 @@
 #' @export
 check_core_r_pkgs = R6::R6Class(
   "check_core_r_pkgs",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Test for core R packages
     #' @param debug_level See check() for details

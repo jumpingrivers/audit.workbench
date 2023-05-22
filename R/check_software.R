@@ -17,5 +17,5 @@ check_software = function(debug_level) {
                  c(length(r_vers), length(py_vers), length(quarto_vers)))
 
   installed = tibble::tibble(installed_version = versions, software)
-  uatBase::augment_installed(installed)
+  audit.base::augment_installed(installed)
 }

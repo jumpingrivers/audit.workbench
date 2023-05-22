@@ -1,3 +1,6 @@
+# uat.workbench 0.3.0 *2022-05-22*
+- feat: Move to GitHub and rename
+
 # jrHealthCheckWorkbench 0.2.5 *2022-05-01*
 - feat: Check including svgs in PDFS
 - fix: Bug when no drivers are available
@@ -9,7 +12,7 @@
 - fix: Pass config file name to R6 objects
 
 # jrHealthCheckWorkbench 0.2.2 *2022-03-20*
-- refactor: Use {uatBase}
+- refactor: Use {audit.base}
 
 # jrHealthCheckWorkbench 0.2.1 *2022-03-18*
 - feat: Check for core R pkgs
@@ -28,4 +31,3 @@
 
 # workbenchtest 0.1.0 *2022-09-02*
 -   Testing user permissions on ~/.Rprofile and ~/.Renviron environments
-

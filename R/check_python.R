@@ -4,7 +4,7 @@
 #' @export
 check_python_pip = R6::R6Class(
   "check_python",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Checks python pip install
     #' @param debug_level See check() for details
@@ -26,7 +26,7 @@ check_python_pip = R6::R6Class(
 #' @export
 check_python_reticulate = R6::R6Class(
   "check_python",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Checks python can be used via reticulate
     #' @param debug_level See check() for details

@@ -17,7 +17,7 @@
 check = function(server,
                  dir = ".",
                  debug_level = 0:2) {
-  debug_level = uatBase::get_debug_level(force(debug_level))
+  debug_level = audit.base::get_debug_level(force(debug_level))
 
   check_list = list()
   check_list$server_headers = serverHeaders::check(server)
@@ -25,7 +25,7 @@ check = function(server,
   check_list$software = check_software(debug_level)
   check_list$pro_drivers = check_posit_drivers(debug_level)
   cli::cli_h2("Starting checks")
-  r6_inits = uatBase::init_r6_checks(dir = dir,
+  r6_inits = audit.base::init_r6_checks(dir = dir,
                                      file = "config-uat-psw.yml",
                                      pkg_name = "jrHealthCheckWorkbench")
   lapply(r6_inits, function(r6) r6$check(debug_level = debug_level))

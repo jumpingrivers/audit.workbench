@@ -11,11 +11,11 @@ for (type in types) {
     paste0("check_quarto_", type),
     R6::R6Class(
       paste0("check_quarto_", type),
-      inherit = uatBase::base_check,
+      inherit = audit.base::base_check,
       public = list(
         check = function(debug_level) {
           quarto_dir = system.file("extdata", private$group, private$short,
-                                   package = "uatBase", mustWork = TRUE)
+                                   package = "audit.base", mustWork = TRUE)
           private$checker(
             render_quarto(quarto_dir, debug_level = debug_level))
 
@@ -32,7 +32,7 @@ for (type in types) {
 }
 
 render_quarto = function(quarto_dir, debug_level) {
-  suppress = uatBase::get_suppress(debug_level) #nolint
+  suppress = audit.base::get_suppress(debug_level) #nolint
 
   tmp_dir = file.path(tempdir(), "quarto")
   on.exit({if (fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)}) #nolint

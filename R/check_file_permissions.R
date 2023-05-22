@@ -4,7 +4,7 @@
 #' @export
 check_file_permissions = R6::R6Class(
   "check_file_permissions",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Checks deployment of a Plumber API
     #' @param debug_level See check() for details

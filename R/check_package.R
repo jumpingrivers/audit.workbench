@@ -8,7 +8,7 @@
 #' @export
 check_cran = R6::R6Class(
   "check_cran",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Installs a package from CRAN
     #' @param debug_level See check() for details
@@ -30,7 +30,7 @@ check_cran = R6::R6Class(
 #' @export
 check_bioconductor = R6::R6Class(
   "check_bioconductor",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Checks that bioconductor URLs are accessible
     #' @param debug_level See check() for details
@@ -52,7 +52,7 @@ check_bioconductor = R6::R6Class(
 #' @export
 check_github = R6::R6Class(
   "check_github",
-  inherit = uatBase::base_check,
+  inherit = audit.base::base_check,
   public = list(
     #' @description Checks installs a package from github#
     #' @param debug_level See check() for details
