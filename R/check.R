@@ -21,9 +21,11 @@ check = function(server,
 
   check_list = list()
   check_list$server_headers = serverHeaders::check(server)
+  check_list$posit_version = check_posit_version()
+  check_list$pro_drivers = check_posit_drivers(debug_level)
+
   check_list$sys_deps = check_sys_libs(debug_level)
   check_list$versions = check_versions(debug_level)
-  check_list$pro_drivers = check_posit_drivers(debug_level)
   cli::cli_h2("Starting checks")
   r6_inits = audit.base::init_r6_checks(dir = dir,
                                      file = "config-uat-psw.yml",
