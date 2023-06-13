@@ -1,0 +1,142 @@
+---
+title: "Posit Workbench Audit"
+format: 
+  html:
+    self-contained: true
+    theme: flatly
+    keep-md: true
+editor_options:
+  chunk_output_type: console
+params:
+  input: "~/auditworkbench.rds"
+---
+
+<!--IMPORTANT:
+This is a working draft.
+As I've worked through the sections, I spot where the check() output could be tweaked to
+provide a better report.
+
+As such, this report will change!
+Consider this a rough draft, that you are able to view :)
+
+Yes, I know the code is horrible - see above comments :)
+--->
+
+```{r}
+#| echo: false
+# quarto render report.qmd -P input:output.rds
+library("lubridate", quietly = TRUE, warn.conflicts = FALSE)
+library("gt")
+library("audit.workbench")
+out = readRDS(params$input)
+audit_details = out$audit_details
+severe = "#f59d9a"
+moderate = "#f5cf9a"
+trivial = "#c0d1ed"
+audit_details = out$audit_details
+server_name = stringr::str_remove_all(audit_details$server, "(^http?s://|/$)")
+```
+
+## Overview  (`r server_name`)
+
+This audit was run by user `r glue::glue("{audit_details$name}")`, using {audit.workbench} R package (version `r audit_details$version`). 
+
+`r audit.base::get_quarto_posit_version_msg(out, "workbench")`
+
+## Server Headings
+
+This audit examines the server headings of the Posit server (or the server sitting in front of Posit).
+It is important to note, that there may be cases where you may want to deviate from setting these
+headings. However, this is the exception and not the rule. 
+The headings listed below follow the recommendations of [securityheaders.com](https://serverheaders.com/) and (to a certain extent)
+Mozilla. Where the heading has not been set, we provide links to documentation.
+
+```{r}
+#| echo: false
+headers = audit.base::get_quarto_server_header(out)
+gt::gt(headers) %>%
+  gt::cols_label("header" = "Header",  message = "Information") %>%
+  gt::cols_align("left") %>%
+  gt::cols_hide("status")  %>%
+  gt::tab_row_group(label = "Looks good", rows = which(headers$status == "OK")) %>%
+  gt::tab_row_group(label = "To investigate", rows = which(headers$status != "OK")) %>%
+  gtExtras::gt_merge_stack(col1 = "message", col2 = "value",
+                           palette = c("grey10", "grey50"),
+                           font_weight = c("normal", "normal"),
+                           small_cap = FALSE
+  )
+```
+
+## System Dependencies
+
+Posit allows users to push dashboards and markdown documents. 
+However, these applications contain R packages that have system level dependencies.
+This check tries to determine which R packages would fail to install.
+
+
+```{r}
+#| echo: false
+sys_deps = audit.base::get_quarto_sys_deps(out)
+```
+
+### Summary
+
+There are `r nrow(sys_deps)` R packages that can't be installed, due to 
+`r sum(sys_deps$n)` missing system dependencies.
+
+```{r}
+#| echo: false
+gt::gt(sys_deps) %>%
+  gt::cols_label("sys_libs" = "System Library",
+                 "pkg" = "R Package") %>%
+  gt::cols_align("left") %>%
+  gt::cols_hide("n") %>%
+  gt::tab_style(style = gt::cell_text(v_align = "top"), 
+                locations = gt::cells_body(columns = sys_libs))
+
+```
+
+## Software Versions
+
+Posit contains multiple versions of R, Python and Quarto.
+This audit compares the installed version, to the latest version. 
+We've highlighted any older versions.
+
+```{r}
+#| echo: false
+software = audit.base::get_quarto_software_versions(out)
+gt::gt(software) %>%
+  gt::cols_label("version" = "Latest version",
+                 "installed_version" = "Installed version") %>%
+  gt::cols_align("right") %>%
+  gt::cols_hide(c("software", "upgrade")) %>%
+
+   gt::tab_row_group(label = "R", rows = which(.data$software == "r")) %>%
+   gt::tab_row_group(label = "Python", rows = which(.data$software == "python")) %>%
+   gt::tab_row_group(label = "Quarto", rows = which(.data$software == "quarto")) %>%
+
+  gtExtras::gt_highlight_rows(rows = which(.data$upgrade), font_color = "white",
+                              fill = severe) 
+```
+
+## Deployments
+
+This audit deploys a variety of applications, ranging from Shiny apps to quarto documents.
+The test determines if the application has been successful launched.
+
+```{r}
+#| echo: false
+deploy = audit.base::get_quarto_deploy(out)
+gt::gt(deploy)  %>%
+  gt::cols_label("context" = "Deployment",
+                 "time_taken" = "Time (secs)") %>%
+  gt::cols_align("right", "time_taken") %>%
+  gt::cols_hide(c("passed", "group", "short")) %>%
+  gt::tab_row_group(label = "Failed", rows = which(!deploy$passed)) %>%
+  gt::tab_row_group(label = "Looks good", rows = which(deploy$passed)) %>%
+  gtExtras::gt_merge_stack(col1 = "context", col2 = "type",
+                           palette = c("grey10", "grey50"),
+                           font_weight = c("normal", "normal"),
+                           small_cap = FALSE
+  ) 
+```
