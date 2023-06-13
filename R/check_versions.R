@@ -1,4 +1,4 @@
-check_software = function(debug_level) {
+check_versions = function(debug_level) {
   cli::cli_h2("Checking R/Python/Quarto Versions")
   # Assume everything stored in /opt
   root_dir = "/opt"

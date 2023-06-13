@@ -9,3 +9,5 @@ _files$
 docs
 /rsconnect/
 ^config-uat-psw\.yml$
+^\.github$
+^README\.Rmd$
