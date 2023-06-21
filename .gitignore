@@ -5,6 +5,8 @@
 git_clone_*
 inst/test_files/notebook_files/*
 inst/test_files/*.tex
+inst/extdata/report/report.md
+inst/extdata/report/report.html
 .Rapp.history
 *-Ex.R
 /*.tar.gz
