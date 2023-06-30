@@ -20,7 +20,8 @@ check_cran = R6::R6Class(
   private = list(
     context = "Checking cran installation",
     short = "cran",
-    group = "package"
+    group = "package",
+    long = "Checking that we can install a package from CRAN"
   )
 )
 
@@ -42,7 +43,8 @@ check_bioconductor = R6::R6Class(
   private = list(
     context = "Checking bioconductor",
     short = "bioconductor",
-    group = "package"
+    group = "package",
+    long = "Checking that we can install a package from Bioconductor"
   )
 )
 
@@ -64,7 +66,8 @@ check_github = R6::R6Class(
   private = list(
     context = "Checking GitHub installation",
     short = "github",
-    group = "package"
+    group = "package",
+    long = "Checking that we can install a package from Github using remotes::install_github"
   )
 )
 

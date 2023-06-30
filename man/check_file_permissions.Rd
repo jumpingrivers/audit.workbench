@@ -36,7 +36,7 @@ Check classes
 \if{html}{\out{<a id="method-check_file_permissions-check"></a>}}
 \if{latex}{\out{\hypertarget{method-check_file_permissions-check}{}}}
 \subsection{Method \code{check()}}{
-Checks deployment of a Plumber API
+Check
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{check_file_permissions$check(debug_level)}\if{html}{\out{</div>}}
 }

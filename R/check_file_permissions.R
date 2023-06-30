@@ -6,7 +6,7 @@ check_file_permissions = R6::R6Class(
   "check_file_permissions",
   inherit = audit.base::base_check,
   public = list(
-    #' @description Checks deployment of a Plumber API
+    #' @description Check
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_file_permissions(debug_level))
@@ -16,7 +16,9 @@ check_file_permissions = R6::R6Class(
   private = list(
     context = "Checking file permissions",
     short = "permissions",
-    group = "user"
+    group = "user",
+    long = "Checking that newly created files in a user's home directory
+    have the correct file permission"
   )
 )
 
