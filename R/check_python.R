@@ -16,7 +16,8 @@ check_python_pip = R6::R6Class(
   private = list(
     context = "Checking pip installs",
     short = "pip",
-    group = "python"
+    group = "python",
+    long = "Checking that numpy can be installed using pip"
   )
 )
 
@@ -38,7 +39,8 @@ check_python_reticulate = R6::R6Class(
   private = list(
     context = "Checking reticulate installs & runs",
     short = "reticulate",
-    group = "python"
+    group = "python",
+    long = "Checking that {reticulate} can be installed and runs correctly"
   )
 )
 

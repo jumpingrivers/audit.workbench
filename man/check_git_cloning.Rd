@@ -36,7 +36,7 @@ Check classes
 \if{html}{\out{<a id="method-check_git_cloning-check"></a>}}
 \if{latex}{\out{\hypertarget{method-check_git_cloning-check}{}}}
 \subsection{Method \code{check()}}{
-Checks deployment of a Plumber API
+Checking that we can access and clone from github.com
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{check_git_cloning$check(debug_level)}\if{html}{\out{</div>}}
 }

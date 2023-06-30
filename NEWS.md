@@ -1,3 +1,6 @@
+# audit.workbench 0.6.0 *2023-06-30*
+- feat: Longer test descriptions
+
 # audit.workbench 0.5.0 *2023-06-21*
 - feat: Use %>% instead of |>
 - feat: Add initial report

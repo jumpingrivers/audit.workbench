@@ -6,7 +6,7 @@ check_git_cloning = R6::R6Class(
   "check_git_cloning",
   inherit = audit.base::base_check,
   public = list(
-    #' @description Checks deployment of a Plumber API
+    #' @description Checking that we can access and clone from github.com
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(git_cloning(debug_level))
@@ -16,7 +16,8 @@ check_git_cloning = R6::R6Class(
   private = list(
     context = "Cloning from github.com",
     short = "git",
-    group = "Cloning"
+    group = "Cloning",
+    long = "Checking that we can access and clone from `github.com`"
   )
 )
 
