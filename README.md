@@ -15,7 +15,9 @@ This checks that Posit Workbench has been correctly installed.
 To install the R package, run
 
 ``` r
-remotes::install_github("github/audit.workbench")
+install.packages('audit.workbench', 
+                 repos = c('https://jumpingrivers.r-universe.dev', 
+                           'https://cloud.r-project.org'))
 ```
 
 ## Usage
