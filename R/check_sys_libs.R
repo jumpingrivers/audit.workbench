@@ -3,4 +3,3 @@ check_sys_libs = function(debug_level) {
   os = readLines("/etc/os-release")
   audit.base::check_sys_deps(os, libs, debug_level)
 }
-

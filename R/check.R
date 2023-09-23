@@ -29,8 +29,8 @@ check = function(server,
   check_list$versions = check_versions(debug_level)
   cli::cli_h2("Starting checks")
   r6_inits = audit.base::init_r6_checks(dir = dir,
-                                     file = "config-uat-psw.yml",
-                                     pkg_name = "audit.workbench")
+                                        file = "config-uat-psw.yml",
+                                        pkg_name = "audit.workbench")
   lapply(r6_inits, function(r6) r6$check(debug_level = debug_level))
   results = purrr::map_dfr(r6_inits, ~.x$get_log())
   check_list$results = dplyr::arrange(results, .data$group, .data$short)
