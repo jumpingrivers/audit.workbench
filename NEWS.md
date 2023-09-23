@@ -1,3 +1,6 @@
+# audit.workbench 0.6.1 *2023-09-23*
+- feat: Improved CI output
+
 # audit.workbench 0.6.0 *2023-06-30*
 - feat: Longer test descriptions
 

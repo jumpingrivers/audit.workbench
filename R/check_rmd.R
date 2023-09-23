@@ -44,6 +44,6 @@ render_rmd = function(rmd_dir, debug_level) {
 
   rmarkdown::render(file.path(tmp_dir, "index.Rmd"),
                     quiet = (debug_level == 0)
-                    )
+  )
   return(invisible(TRUE))
 }
