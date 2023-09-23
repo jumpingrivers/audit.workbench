@@ -17,7 +17,7 @@ check_core_r_pkgs = R6::R6Class(
   private = list(
     context = "Checking core_r_pkgs",
     long = "Checks that core R packages are pre-installed as described in
-    https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html",
+    [the Posit Workbench documentation](https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html)",
     short = "r_pkgs",
     group = "package"
   )
