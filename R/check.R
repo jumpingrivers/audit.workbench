@@ -34,5 +34,6 @@ check = function(server,
   lapply(r6_inits, function(r6) r6$check(debug_level = debug_level))
   results = purrr::map_dfr(r6_inits, ~.x$get_log())
   check_list$results = dplyr::arrange(results, .data$group, .data$short)
+  cli::cli_h1("All checks complete")
   return(invisible(check_list))
 }

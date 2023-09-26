@@ -1,5 +1,8 @@
+# audit.workbench 0.6.2 *2023-09-26*
+- feat: Add "All tests complete" message
+
 # audit.workbench 0.6.1 *2023-09-23*
-- feat: Improved CI output
+- feat: Improved CLI output
 
 # audit.workbench 0.6.0 *2023-06-30*
 - feat: Longer test descriptions
