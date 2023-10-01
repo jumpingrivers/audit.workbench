@@ -1,3 +1,6 @@
+# audit.workbench 0.6.3 *2023-10-01*
+- feat: Check for posit name leakage
+
 # audit.workbench 0.6.2 *2023-09-26*
 - feat: Add "All tests complete" message
 
