@@ -21,7 +21,7 @@ check = function(server,
 
   check_list = list()
   check_list$audit_details = audit_details(server)
-  check_list$server_headers = serverHeaders::check(server)
+  check_list$server_headers = audit.base::check_server_headers(server)
   check_list$posit_version = check_posit_version()
   check_list$pro_drivers = check_posit_drivers(debug_level)
 
