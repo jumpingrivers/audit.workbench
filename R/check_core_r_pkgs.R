@@ -30,5 +30,5 @@ testing_core_r_pkgs = function(debug_level) {
   if (length(missing_r_pkgs) > 0L) {
     cli::cli_abort("Core R packages are missing: {missing_r_pkgs}")
   }
-  return(NULL)
+  return(TRUE)
 }

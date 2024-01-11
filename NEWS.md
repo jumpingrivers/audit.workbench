@@ -1,3 +1,6 @@
+# audit.workbench 0.6.4 *2023-01-11*
+- fix: Return `TRUE`, when `testing_core_r_pkgs()` passes
+
 # audit.workbench 0.6.3 *2023-10-01*
 - feat: Check for posit name leakage
 
