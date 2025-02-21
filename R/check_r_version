@@ -1,0 +1,7 @@
+check_r_version = function() {
+  if (Sys.getenv("RSTUDIO", "0") == "0") {
+    cli::cli_alert_warning("Doesn't appear to be running Rstudio")
+    return(invisible(NA))
+  }
+  audit.base::
+}
