@@ -44,7 +44,7 @@ Checking that we can access and clone from github.com
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{debug_level}}{See check() for details}
+\item{\code{debug_level}}{See `check()` for details}
 }
 \if{html}{\out{</div>}}
 }

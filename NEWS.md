@@ -1,3 +1,6 @@
+# audit.workbench 0.6.5 *2025-02-22*
+- feat: The {rstudioapi} package is now optional
+
 # audit.workbench 0.6.4 *2023-01-11*
 - fix: Return `TRUE`, when `testing_core_r_pkgs()` passes
 

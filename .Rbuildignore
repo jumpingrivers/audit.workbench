@@ -11,3 +11,6 @@ docs
 ^config-uat-psw\.yml$
 ^\.github$
 ^README\.Rmd$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
