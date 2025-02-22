@@ -36,7 +36,7 @@ Check classes
 \if{html}{\out{<a id="method-check_bioconductor-check"></a>}}
 \if{latex}{\out{\hypertarget{method-check_bioconductor-check}{}}}
 \subsection{Method \code{check()}}{
-Checks that bioconductor URLs are accessible
+Checks that Bioconductor URLs are accessible
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{check_bioconductor$check(debug_level)}\if{html}{\out{</div>}}
 }

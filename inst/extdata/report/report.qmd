@@ -91,7 +91,7 @@ gt::gt(sys_deps) %>%
                  "pkg" = "R Package") %>%
   gt::cols_align("left") %>%
   gt::cols_hide("n") %>%
-  gt::tab_style(style = gt::cell_text(v_align = "top"), 
+  gt::tab_style(style = gt::cell_text(v_align = "top"),
                 locations = gt::cells_body(columns = sys_libs))
 
 ```
@@ -111,12 +111,12 @@ gt::gt(software) %>%
   gt::cols_align("right") %>%
   gt::cols_hide(c("software", "upgrade")) %>%
 
-   gt::tab_row_group(label = "R", rows = which(.data$software == "r")) %>%
-   gt::tab_row_group(label = "Python", rows = which(.data$software == "python")) %>%
-   gt::tab_row_group(label = "Quarto", rows = which(.data$software == "quarto")) %>%
+  gt::tab_row_group(label = "R", rows = which(.data$software == "r")) %>%
+  gt::tab_row_group(label = "Python", rows = which(.data$software == "python")) %>%
+  gt::tab_row_group(label = "Quarto", rows = which(.data$software == "quarto")) %>%
 
   gtExtras::gt_highlight_rows(rows = which(.data$upgrade), font_color = "white",
-                              fill = severe) 
+                              fill = severe)
 ```
 
 ## Deployments
@@ -138,5 +138,5 @@ gt::gt(deploy)  %>%
                            palette = c("grey10", "grey50"),
                            font_weight = c("normal", "normal"),
                            small_cap = FALSE
-  ) 
+  )
 ```

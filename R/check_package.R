@@ -33,7 +33,7 @@ check_bioconductor = R6::R6Class(
   "check_bioconductor",
   inherit = audit.base::base_check,
   public = list(
-    #' @description Checks that bioconductor URLs are accessible
+    #' @description Checks that Bioconductor URLs are accessible
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_bioconductor(debug_level))
