@@ -31,3 +31,4 @@ inst/doc
 *.env
 *.swp
 config-uat-psw.yml
+docs
