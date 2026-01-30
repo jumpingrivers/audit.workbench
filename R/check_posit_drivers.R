@@ -8,9 +8,10 @@ check_posit_drivers = function(debug_level) {
     software = "Posit pro-drivers",
     installed_version = installed_version,
     upgrade = upgrade,
-    version = latest_version)
+    version = latest_version
+  )
   audit.base::print_colour_versions(installed)
-  return(installed)
+  installed
 }
 
 get_installed_posit_driver = function() {
@@ -18,11 +19,15 @@ get_installed_posit_driver = function() {
   if (file.exists(fname)) {
     odbc = readLines(fname, warn = FALSE)
     versions = odbc[stringr::str_starts(odbc, "#", negate = TRUE)]
-    versions = stringr::str_extract(versions, "RStudioVersion = (.*)", group = TRUE)
+    versions = stringr::str_extract(
+      versions,
+      "RStudioVersion = (.*)",
+      group = TRUE
+    )
     versions = versions[!is.na(versions)]
     installed_version = unique(versions)
   } else {
     installed_version = NA_character_
   }
-  return(installed_version)
+  installed_version
 }

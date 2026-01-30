@@ -14,7 +14,7 @@ check_cran = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_cran(debug_level))
-      return(invisible(NULL))
+      rinvisible(NULL)
     }
   ),
   private = list(
@@ -37,7 +37,7 @@ check_bioconductor = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_bioconductor(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -60,7 +60,7 @@ check_github = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_github(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -76,14 +76,17 @@ testing_cran = function(debug_level) {
   pkg_name = "drat"
   is_installed = install_packages(pkg_name, quiet = TRUE)
   stopifnot("pkg unable to be installed" = is_installed)
-  return(invisible(TRUE))
+  invisible(TRUE)
 }
 
 testing_github = function(debug_level) {
-  installed_pkg = remotes::install_github("jumpingrivers/datasauRus",
-                                          quiet = TRUE, force = TRUE)
+  installed_pkg = remotes::install_github(
+    "jumpingrivers/datasauRus",
+    quiet = TRUE,
+    force = TRUE
+  )
   stopifnot(installed_pkg == "datasauRus")
-  return(invisible(TRUE))
+  invisible(TRUE)
 }
 
 testing_bioconductor = function(debug_level) {
@@ -94,7 +97,7 @@ testing_bioconductor = function(debug_level) {
   lapply(repos, function(repo) {
     stopifnot("Unable to access bioconductor repo" = !httr::http_error(repo))
   })
-  return(invisible(TRUE))
+  invisible(TRUE)
 }
 
 install_packages = function(pkgs, quiet = FALSE) {
@@ -104,7 +107,10 @@ install_packages = function(pkgs, quiet = FALSE) {
   # install.packages() doesn't throw an error if the pkg install fails
   # instead we capture the warning using capture() - that then changes the value of `e`
   # Hence: if e isn't null, something bad has happened.
-  withCallingHandlers(utils::install.packages(pkgs, quiet = quiet), warning = capture)
+  withCallingHandlers(
+    utils::install.packages(pkgs, quiet = quiet),
+    warning = capture
+  )
   # If pkg not installed, return FALSE
   is.null(e)
 }

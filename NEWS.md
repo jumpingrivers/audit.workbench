@@ -1,3 +1,7 @@
+# audit.workbench 0.6.6 *2026-01-22*
+- fix: Parsing Posit versions #20
+- chore: Linting and air'ing
+
 # audit.workbench 0.6.5 *2025-02-22*
 - feat: The {rstudioapi} package is now optional
 
@@ -19,7 +23,7 @@
 # audit.workbench 0.5.0 *2023-06-21*
 - feat: Use %>% instead of |>
 - feat: Add initial report
-- feat: Standardise function names with 
+- feat: Standardise function names with
 
 # audit.workbench 0.4.0 *2023-06-11*
 - feat: Initial version

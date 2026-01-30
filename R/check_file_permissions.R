@@ -10,7 +10,7 @@ check_file_permissions = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_file_permissions(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -31,7 +31,6 @@ testing_file_permissions = function(debug_level) {
     # Convert the string to an integer, so that we can use it to make comparisons:
     file_permissions = strtoi(permissions_on_file)
     stopifnot("File permissions incorrect" = file_permissions >= 600)
-  }
-  )
-  return(invisible(TRUE))
+  })
+  invisible(TRUE)
 }

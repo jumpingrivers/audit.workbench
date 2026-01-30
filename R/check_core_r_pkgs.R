@@ -11,7 +11,7 @@ check_core_r_pkgs = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_core_r_pkgs(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -30,14 +30,16 @@ testing_core_r_pkgs = function(debug_level) {
   if (length(missing_r_pkgs) > 0L) {
     cli::cli_abort("Core R packages are missing: {missing_r_pkgs}")
   }
-  return(TRUE)
+  TRUE
 }
 
 get_core_r_packages = function() {
   if (requireNamespace("rstudioapi", quietly = TRUE)) {
     core = rstudioapi::getRStudioPackageDependencies()$name
   } else if (requireNamespace("rstudioapi", quietly = TRUE)) {
-    html = rvest::read_html("https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html") #nolint
+    html = rvest::read_html(
+      "https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html"
+    ) #nolint
     cells = rvest::html_nodes(html, "td")
     values = purrr::map_chr(cells, rvest::html_text2)
     all = tibble::tibble(
@@ -49,5 +51,5 @@ get_core_r_packages = function() {
   } else {
     stop("Install either rstudioapi or rvest to check core packages ")
   }
-  return(sort(core))
+  sort(core)
 }

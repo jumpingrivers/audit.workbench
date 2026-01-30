@@ -10,7 +10,7 @@ check_python_pip = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(python_pip_tests(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -33,7 +33,7 @@ check_python_reticulate = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(python_reticulate_tests(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -51,15 +51,21 @@ python_pip_tests = function(debug_level) {
   min_version = grepl("pip [2-3][0-9]", pip_version)
   stopifnot("Pip failed to install " = min_version)
 
-  numpy = processx::run("pip", args = c("install", "numpy", "--force-reinstall"))
+  numpy = processx::run(
+    "pip",
+    args = c("install", "numpy", "--force-reinstall")
+  )
   withr::defer(processx::run("pip", args = c("uninstall", "numpy", "--yes")))
-  has_installed = grepl(numpy$stdout, pattern = "Successfully installed")
+  has_installed = grepl(
+    numpy$stdout,
+    pattern = "Successfully installed",
+    fixed = TRUE
+  )
   stopifnot("Pip failed to install " = has_installed)
-  return(invisible(TRUE))
+  invisible(TRUE)
 }
 
 python_reticulate_tests = function(debug_level) {
-
   if (!requireNamespace("reticulate", quietly = TRUE)) {
     utils::install.packages("reticulate")
     withr::defer(utils::remove.packages("reticulate"))
@@ -67,5 +73,5 @@ python_reticulate_tests = function(debug_level) {
 
   reticulate::py_run_string("x=2+2")
   stopifnot("Reticulate error " = reticulate::py$x == 4)
-  return(invisible(TRUE))
+  invisible(TRUE)
 }
