@@ -1,0 +1,56 @@
+# audit.connect
+
+This checks that Posit Workbench has been correctly installed.
+
+## Installation
+
+To install the R package, run
+
+``` r
+install.packages('audit.workbench', 
+                 repos = c('https://jumpingrivers.r-universe.dev', 
+                           'https://cloud.r-project.org'))
+```
+
+## Usage
+
+Running the test is straightforward
+
+``` r
+library("audit.workbench")
+check(server = "https://www.server.name/")
+```
+
+# Package index
+
+## All functions
+
+- [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+  : Run UAT Checks
+- [`check_bioconductor`](https://jumpingrivers.github.io/audit.workbench/reference/check_bioconductor.md)
+  : R6 classes
+- [`check_core_r_pkgs`](https://jumpingrivers.github.io/audit.workbench/reference/check_core_r_pkgs.md)
+  : R6 classes
+- [`check_cran`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  [`check_quarto_beamer`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  [`check_quarto_docx`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  [`check_quarto_html`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  [`check_quarto_observable`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  [`check_quarto_pdf`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  [`check_quarto_rsvg_convert`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
+  : R6 classes
+- [`check_file_permissions`](https://jumpingrivers.github.io/audit.workbench/reference/check_file_permissions.md)
+  : R6 classes
+- [`check_git_cloning`](https://jumpingrivers.github.io/audit.workbench/reference/check_git_cloning.md)
+  : R6 classes
+- [`check_github`](https://jumpingrivers.github.io/audit.workbench/reference/check_github.md)
+  : R6 classes
+- [`check_python_pip`](https://jumpingrivers.github.io/audit.workbench/reference/check_python_pip.md)
+  : R6 classes
+- [`check_python_reticulate`](https://jumpingrivers.github.io/audit.workbench/reference/check_python_reticulate.md)
+  : R6 classes
+- [`types`](https://jumpingrivers.github.io/audit.workbench/reference/check_rmd_word.md)
+  : R6 Quarto checks
+- [`create_config()`](https://jumpingrivers.github.io/audit.workbench/reference/create_config.md)
+  : Create test config
+
