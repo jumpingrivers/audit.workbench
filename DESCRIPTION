@@ -1,12 +1,13 @@
 Type: Package
 Package: audit.workbench
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.6.5
-Authors@R: 
+Version: 0.6.6
+Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
     Posit Workbench.
 License: file LICENSE
+URL: https://jumpingrivers.github.io/audit.workbench/
 Imports:
     audit.base (>= 0.6.20),
     BiocManager,
@@ -28,15 +29,14 @@ Imports:
     yaml
 Suggests:
     reticulate,
-    rvest,
     rstudioapi,
+    rvest,
     testthat (>= 3.0.0)
 Remotes:
     jumpingrivers/audit.base,
     jumpingrivers/serverheaders
 Config/testthat/edition: 3
 Encoding: UTF-8
-LazyData: false
 Language: en-GB
+LazyData: false
 RoxygenNote: 7.3.2
-URL: https://jumpingrivers.github.io/audit.workbench/
