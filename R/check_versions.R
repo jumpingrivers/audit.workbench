@@ -13,8 +13,10 @@ check_versions = function(debug_level) {
   quarto_vers = fs::dir_ls(quarto_dir, type = "directory", regexp = regexpr)
 
   versions = stringr::str_extract(c(r_vers, py_vers, quarto_vers), regexpr)
-  software = rep(c("r", "python", "quarto"),
-                 c(length(r_vers), length(py_vers), length(quarto_vers)))
+  software = rep(
+    c("r", "python", "quarto"),
+    c(length(r_vers), length(py_vers), length(quarto_vers))
+  )
 
   installed = tibble::tibble(installed_version = versions, software)
   audit.base::augment_installed(installed)

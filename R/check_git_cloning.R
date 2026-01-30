@@ -10,7 +10,7 @@ check_git_cloning = R6::R6Class(
     #' @param debug_level See `check()` for details
     check = function(debug_level) {
       private$checker(git_cloning(debug_level))
-      return(invisible(NULL))
+      invisible(NULL)
     }
   ),
   private = list(
@@ -25,8 +25,11 @@ git_cloning = function(debug_level) {
   git_clone_url = "https://github.com/jumpingrivers/diffify.git"
   git_local_folder = file.path(tempdir(), "diffify")
 
-  system2("git", args = c("clone", "--depth", "1", git_clone_url, git_local_folder))
+  system2(
+    "git",
+    args = c("clone", "--depth", "1", git_clone_url, git_local_folder)
+  )
   withr::defer(unlink(git_local_folder, recursive = TRUE))
   success = dir.exists(git_local_folder)
-  return(success)
+  success
 }

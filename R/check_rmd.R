@@ -10,40 +10,52 @@
 #' @aliases check_rmd_word check_rmd_html check_rmd_pdf
 types = c("word", "html", "pdf")
 for (type in types) {
-
-  assign(paste0("check_rmd_", type), R6::R6Class(
+  assign(
     paste0("check_rmd_", type),
-    inherit = audit.base::base_check,
-    public = list(
-      check = function(debug_level) {
-        rmd_dir = system.file("extdata", private$group, private$short,
-                              package = "audit.base", mustWork = TRUE)
-        private$checker(
-          render_rmd(rmd_dir, debug_level = debug_level))
+    R6::R6Class(
+      paste0("check_rmd_", type),
+      inherit = audit.base::base_check,
+      public = list(
+        check = function(debug_level) {
+          rmd_dir = system.file(
+            "extdata",
+            private$group,
+            private$short,
+            package = "audit.base",
+            mustWork = TRUE
+          )
+          private$checker(
+            render_rmd(rmd_dir, debug_level = debug_level)
+          )
 
-        return(invisible(NULL))
-      }
-    ),
-    private = list(
-      context = paste("Rendering", type),
-      short = type,
-      group = "render_rmd",
-      long = paste0("Checking that Rmarkdown can render a document (type: `", type, "`)")
+          invisible(NULL)
+        }
+      ),
+      private = list(
+        context = paste("Rendering", type),
+        short = type,
+        group = "render_rmd",
+        long = paste0(
+          "Checking that Rmarkdown can render a document (type: `",
+          type,
+          "`)"
+        )
+      )
     )
-  ))
-
+  )
 }
 
 render_rmd = function(rmd_dir, debug_level) {
   tmp_dir = file.path(tempdir(), "rmd")
-  on.exit({if (fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)}) #nolint
+  on.exit({
+    if (fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)
+  }) #nolint
 
   dir.create(tmp_dir, showWarnings = FALSE)
-  lapply(list.files(rmd_dir, full.names = TRUE),
-         function(f) file.copy(f, tmp_dir))
+  lapply(list.files(rmd_dir, full.names = TRUE), function(f) {
+    file.copy(f, tmp_dir)
+  })
 
-  rmarkdown::render(file.path(tmp_dir, "index.Rmd"),
-                    quiet = (debug_level == 0)
-  )
-  return(invisible(TRUE))
+  rmarkdown::render(file.path(tmp_dir, "index.Rmd"), quiet = (debug_level == 0))
+  TRUE
 }

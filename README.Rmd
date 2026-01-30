@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# audit.connect
+# audit.workbench
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/jumpingrivers/audit.workbench/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jumpingrivers/audit.workbench/actions/workflows/R-CMD-check.yaml)
@@ -26,9 +26,10 @@ This checks that Posit Workbench has been correctly installed.
 To install the R package, run
 
 ```{r, eval = FALSE}
-install.packages('audit.workbench', 
-                 repos = c('https://jumpingrivers.r-universe.dev', 
-                           'https://cloud.r-project.org'))
+install.packages(
+  "audit.workbench",
+  repos = c('https://jumpingrivers.r-universe.dev', options("repos")$repos)
+)
 ```
 
 ## Usage
@@ -39,4 +40,3 @@ Running the test is straightforward
 library("audit.workbench")
 check(server = "https://www.server.name/")
 ```
-

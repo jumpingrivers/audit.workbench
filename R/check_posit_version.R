@@ -12,5 +12,5 @@ check_posit_version = function() {
     "^20[0-9][0-9]\\.[0-9]?[0-9]\\.[0-9]?[0-9]"
   )
   audit.base::audit_posit_version(posit_version, type = "workbench")
-  return(posit_version)
+  posit_version
 }
