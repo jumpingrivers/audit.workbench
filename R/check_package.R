@@ -14,7 +14,7 @@ check_cran = R6::R6Class(
     #' @param debug_level See check() for details
     check = function(debug_level) {
       private$checker(testing_cran(debug_level))
-      rinvisible(NULL)
+      invisible(NULL)
     }
   ),
   private = list(
@@ -93,7 +93,7 @@ testing_bioconductor = function(debug_level) {
   # Can we access the bioconductor repos
   # Repo 5 is bioconductor, but doesn't work!
   # Installing a bioconductor pkg is slowwww
-  repos = BiocManager::repositories()[1:4]
+  repos = suppressMessages(BiocManager::repositories()[1:4])
   lapply(repos, function(repo) {
     stopifnot("Unable to access bioconductor repo" = !httr::http_error(repo))
   })
