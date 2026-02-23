@@ -32,7 +32,8 @@ get_installed_posit_driver = function() {
   installed_version
 }
 
-print_colour_version_posit_driver = function(row) {
+# fmt: skip
+print_colour_version_posit_driver = function(row) { # nolint
   software_name = glue::glue("{stringr::str_to_title(row$software)}") # nolint
   latest_version = glue::glue("{row$version}") # nolint
   if (is.na(row$installed_version)) {
