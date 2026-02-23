@@ -32,10 +32,9 @@ get_installed_posit_driver = function() {
   installed_version
 }
 
-
 print_colour_version_posit_driver = function(row) {
-  software_name = glue::glue("{stringr::str_to_title(row$software)}{major}") # nolint
-  latest_version = glue::glue("v{row$version}") # nolint
+  software_name = glue::glue("{stringr::str_to_title(row$software)}") # nolint
+  latest_version = glue::glue("{row$version}") # nolint
   if (is.na(row$installed_version)) {
     cli::cli_alert_danger(
       "{software_name}: latest {latest_version} not installed"
