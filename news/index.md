@@ -1,5 +1,12 @@
 # Changelog
 
+## audit.workbench 0.6.7 *2026-02-23*
+
+- fix: Use remote versions of software if possible
+- fix: Printing drivers to screen
+- fix: Suppress some BioConductor noise
+- fix: Check cran didn’t work
+
 ## audit.workbench 0.6.6 *2026-01-22*
 
 - fix: Parsing Posit versions \#20
