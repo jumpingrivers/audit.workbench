@@ -19,5 +19,5 @@ check_versions = function(debug_level) {
   )
 
   installed = tibble::tibble(installed_version = versions, software)
-  audit.base::augment_installed(installed)
+  audit.base::augment_installed(installed, remote = TRUE)
 }

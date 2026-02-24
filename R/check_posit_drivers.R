@@ -10,7 +10,7 @@ check_posit_drivers = function(debug_level) {
     upgrade = upgrade,
     version = latest_version
   )
-  audit.base::print_colour_versions(installed)
+  print_colour_version_posit_driver(installed[1, ])
   installed
 }
 
@@ -30,4 +30,28 @@ get_installed_posit_driver = function() {
     installed_version = NA_character_
   }
   installed_version
+}
+
+# fmt: skip
+print_colour_version_posit_driver = function(row) { # nolint
+  software_name = glue::glue("{stringr::str_to_title(row$software)}") # nolint
+  latest_version = glue::glue("{row$version}") # nolint
+  if (is.na(row$installed_version)) {
+    cli::cli_alert_danger(
+      "{software_name}: latest {latest_version} not installed"
+    )
+    return(invisible(NULL))
+  }
+
+  if (isTRUE(row$upgrade)) {
+    cli::cli_alert_danger(
+      "{software_name}: v{row$installed_version} installed, \\
+                          but {latest_version} available"
+    )
+  } else {
+    cli::cli_alert_success(
+      "{software_name}: Latest version installed"
+    )
+  }
+  invisible(NULL)
 }
