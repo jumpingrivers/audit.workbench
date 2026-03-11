@@ -1,3 +1,6 @@
+# audit.workbench 0.6.8 *2026-03-11*
+- fix: debug_level now properly passed
+
 # audit.workbench 0.6.7 *2026-02-23*
 - fix: Use remote versions of software if possible
 - fix: Printing drivers to screen

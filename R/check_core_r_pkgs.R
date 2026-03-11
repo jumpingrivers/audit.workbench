@@ -10,7 +10,7 @@ check_core_r_pkgs = R6::R6Class(
     #' @description Test for core R packages
     #' @param debug_level See check() for details
     check = function(debug_level) {
-      private$checker(testing_core_r_pkgs(debug_level))
+      private$checker(testing_core_r_pkgs(), debug_level)
       invisible(NULL)
     }
   ),
@@ -23,7 +23,7 @@ check_core_r_pkgs = R6::R6Class(
   )
 )
 
-testing_core_r_pkgs = function(debug_level) {
+testing_core_r_pkgs = function() {
   core_r_pkgs = get_core_r_packages()
   in_pkgs = utils::installed.packages()
   missing_r_pkgs = core_r_pkgs[!(core_r_pkgs %in% rownames(in_pkgs))]

@@ -25,7 +25,8 @@ for (type in types) {
             mustWork = TRUE
           )
           private$checker(
-            render_rmd(rmd_dir, debug_level = debug_level)
+            render_rmd(rmd_dir, debug_level = debug_level),
+            debug_level
           )
 
           invisible(NULL)

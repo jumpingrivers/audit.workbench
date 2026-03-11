@@ -9,7 +9,7 @@ check_git_cloning = R6::R6Class(
     #' @description Checking that we can access and clone from github.com
     #' @param debug_level See `check()` for details
     check = function(debug_level) {
-      private$checker(git_cloning(debug_level))
+      private$checker(git_cloning(), debug_level)
       invisible(NULL)
     }
   ),
@@ -21,7 +21,7 @@ check_git_cloning = R6::R6Class(
   )
 )
 
-git_cloning = function(debug_level) {
+git_cloning = function() {
   git_clone_url = "https://github.com/jumpingrivers/diffify.git"
   git_local_folder = file.path(tempdir(), "diffify")
 

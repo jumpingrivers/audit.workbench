@@ -29,7 +29,8 @@ for (i in seq_along(types)) {
             mustWork = TRUE
           )
           private$checker(
-            render_quarto(quarto_dir, debug_level = debug_level)
+            render_quarto(quarto_dir, debug_level),
+            debug_level
           )
           invisible(NULL)
         }
