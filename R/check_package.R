@@ -13,7 +13,7 @@ check_cran = R6::R6Class(
     #' @description Installs a package from CRAN
     #' @param debug_level See check() for details
     check = function(debug_level) {
-      private$checker(testing_cran(debug_level))
+      private$checker(testing_cran(), debug_level)
       invisible(NULL)
     }
   ),
@@ -36,7 +36,7 @@ check_bioconductor = R6::R6Class(
     #' @description Checks that Bioconductor URLs are accessible
     #' @param debug_level See check() for details
     check = function(debug_level) {
-      private$checker(testing_bioconductor(debug_level))
+      private$checker(testing_bioconductor(), debug_level)
       invisible(NULL)
     }
   ),
@@ -59,7 +59,7 @@ check_github = R6::R6Class(
     #' @description Checks installs a package from github#
     #' @param debug_level See check() for details
     check = function(debug_level) {
-      private$checker(testing_github(debug_level))
+      private$checker(testing_github(), debug_level)
       invisible(NULL)
     }
   ),
@@ -71,15 +71,14 @@ check_github = R6::R6Class(
   )
 )
 
-
-testing_cran = function(debug_level) {
+testing_cran = function() {
   pkg_name = "drat"
   is_installed = install_packages(pkg_name, quiet = TRUE)
   stopifnot("pkg unable to be installed" = is_installed)
   invisible(TRUE)
 }
 
-testing_github = function(debug_level) {
+testing_github = function() {
   installed_pkg = remotes::install_github(
     "jumpingrivers/datasauRus",
     quiet = TRUE,
@@ -89,7 +88,7 @@ testing_github = function(debug_level) {
   invisible(TRUE)
 }
 
-testing_bioconductor = function(debug_level) {
+testing_bioconductor = function() {
   # Can we access the bioconductor repos
   # Repo 5 is bioconductor, but doesn't work!
   # Installing a bioconductor pkg is slowwww

@@ -9,7 +9,7 @@ check_file_permissions = R6::R6Class(
     #' @description Check
     #' @param debug_level See check() for details
     check = function(debug_level) {
-      private$checker(testing_file_permissions(debug_level))
+      private$checker(testing_file_permissions(), debug_level)
       invisible(NULL)
     }
   ),
@@ -22,7 +22,7 @@ check_file_permissions = R6::R6Class(
   )
 )
 
-testing_file_permissions = function(debug_level) {
+testing_file_permissions = function() {
   fname = file.path("~", "tmp-file-creating.txt")
   withr::with_file(fname, {
     fs::file_create(fname)
