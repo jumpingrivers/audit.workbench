@@ -1,7 +1,7 @@
 Type: Package
 Package: audit.workbench
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.6.8
+Version: 0.6.9
 Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
@@ -34,8 +34,8 @@ Suggests:
     testthat (>= 3.0.0)
 Remotes:
     jumpingrivers/audit.base
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-GB
 LazyData: false
-RoxygenNote: 7.3.3
