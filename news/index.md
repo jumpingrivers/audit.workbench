@@ -1,5 +1,10 @@
 # Changelog
 
+## audit.workbench 0.6.9 *2026-06-15*
+
+- feat: Better R/Python detection
+- Bump roxygen2 version
+
 ## audit.workbench 0.6.8 *2026-03-11*
 
 - fix: debug_level now properly passed

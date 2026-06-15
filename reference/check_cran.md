@@ -1,11 +1,5 @@
 # R6 classes
 
-R6 classes
-
-R6 classes
-
-## Details
-
 Check classes
 
 ## Super classes
@@ -33,7 +27,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+### `check_cran$check()`
 
 Installs a package from CRAN
 
@@ -49,7 +43,7 @@ Installs a package from CRAN
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `check_cran$clone()`
 
 The objects of this class are cloneable with this method.
 

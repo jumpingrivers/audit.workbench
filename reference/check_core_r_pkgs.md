@@ -1,11 +1,5 @@
 # R6 classes
 
-R6 classes
-
-R6 classes
-
-## Details
-
 Checks that core R packages are pre-installed as described in
 https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html
 
@@ -34,7 +28,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+### `check_core_r_pkgs$check()`
 
 Test for core R packages
 
@@ -50,7 +44,7 @@ Test for core R packages
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `check_core_r_pkgs$clone()`
 
 The objects of this class are cloneable with this method.
 

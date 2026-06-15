@@ -1,11 +1,5 @@
 # R6 classes
 
-R6 classes
-
-R6 classes
-
-## Details
-
 Check classes
 
 ## Super classes
@@ -33,7 +27,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+### `check_github$check()`
 
 Checks installs a package from github#
 
@@ -49,7 +43,7 @@ Checks installs a package from github#
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `check_github$clone()`
 
 The objects of this class are cloneable with this method.
 

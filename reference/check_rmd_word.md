@@ -7,7 +7,3 @@ A short description...
 ``` r
 types
 ```
-
-## Format
-
-An object of class `character` of length 3.

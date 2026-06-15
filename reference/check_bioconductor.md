@@ -1,11 +1,5 @@
 # R6 classes
 
-R6 classes
-
-R6 classes
-
-## Details
-
 Check classes
 
 ## Super classes
@@ -33,7 +27,7 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+### `check_bioconductor$check()`
 
 Checks that Bioconductor URLs are accessible
 
@@ -49,7 +43,7 @@ Checks that Bioconductor URLs are accessible
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `check_bioconductor$clone()`
 
 The objects of this class are cloneable with this method.
 

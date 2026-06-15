@@ -1,11 +1,5 @@
 # R6 classes
 
-R6 classes
-
-R6 classes
-
-## Details
-
 Check classes
 
 ## Super classes
@@ -19,9 +13,9 @@ Check classes
 
 ### Public methods
 
-- [`check_python_reticulate$check()`](#method-check_python-check)
+- [`check_python$check()`](#method-check_python-check)
 
-- [`check_python_reticulate$clone()`](#method-check_python-clone)
+- [`check_python$clone()`](#method-check_python-clone)
 
 Inherited methods
 
@@ -33,13 +27,13 @@ Inherited methods
 
 ------------------------------------------------------------------------
 
-### Method [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+### `check_python$check()`
 
 Checks python can be used via reticulate
 
 #### Usage
 
-    check_python_reticulate$check(debug_level)
+    check_python$check(debug_level)
 
 #### Arguments
 
@@ -49,13 +43,13 @@ Checks python can be used via reticulate
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `check_python$clone()`
 
 The objects of this class are cloneable with this method.
 
 #### Usage
 
-    check_python_reticulate$clone(deep = FALSE)
+    check_python$clone(deep = FALSE)
 
 #### Arguments
 
