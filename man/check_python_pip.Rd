@@ -4,11 +4,6 @@
 \alias{check_python_pip}
 \title{R6 classes}
 \description{
-R6 classes
-
-R6 classes
-}
-\details{
 Check classes
 }
 \section{Super classes}{
@@ -16,54 +11,56 @@ Check classes
 }
 \section{Methods}{
 \subsection{Public methods}{
-\itemize{
-\item \href{#method-check_python-check}{\code{check_python_pip$check()}}
-\item \href{#method-check_python-clone}{\code{check_python_pip$clone()}}
+  \itemize{
+    \item \href{#method-check_python-check}{\code{check_python$check()}}
+    \item \href{#method-check_python-clone}{\code{check_python$clone()}}
+  }
 }
-}
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
+\if{html}{\out{<details open><summary>Inherited methods</summary>
 <ul>
-<li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="get_log"><a href='../../audit.base/html/logger.html#method-logger-get_log'><code>audit.base::logger$get_log()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="start_logger"><a href='../../audit.base/html/logger.html#method-logger-start_logger'><code>audit.base::logger$start_logger()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="stop_logger"><a href='../../audit.base/html/logger.html#method-logger-stop_logger'><code>audit.base::logger$stop_logger()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="info"><a href='../../audit.base/html/base_check.html#method-base_check-info'><code>audit.base::base_check$info()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="initialize"><a href='../../audit.base/html/base_check.html#method-base_check-initialize'><code>audit.base::base_check$initialize()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="get_log"><a href='../../audit.base/html/logger.html#method-logger-get_log'><code>audit.base::logger$get_log()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="start_logger"><a href='../../audit.base/html/logger.html#method-logger-start_logger'><code>audit.base::logger$start_logger()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="stop_logger"><a href='../../audit.base/html/logger.html#method-logger-stop_logger'><code>audit.base::logger$stop_logger()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="info"><a href='../../audit.base/html/base_check.html#method-base_check-info'><code>audit.base::base_check$info()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="initialize"><a href='../../audit.base/html/base_check.html#method-base_check-initialize'><code>audit.base::base_check$initialize()</code></a></span></li>
 </ul>
-</details>
-}}
+</details>}}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-check_python-check"></a>}}
 \if{latex}{\out{\hypertarget{method-check_python-check}{}}}
-\subsection{Method \code{check()}}{
-Checks python pip install
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{check_python_pip$check(debug_level)}\if{html}{\out{</div>}}
+\subsection{\code{check_python$check()}}{
+  Checks python pip install
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{check_python$check(debug_level)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{debug_level}}{See check() for details}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{debug_level}}{See check() for details}
-}
-\if{html}{\out{</div>}}
-}
-}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-check_python-clone"></a>}}
 \if{latex}{\out{\hypertarget{method-check_python-clone}{}}}
-\subsection{Method \code{clone()}}{
-The objects of this class are cloneable with this method.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{check_python_pip$clone(deep = FALSE)}\if{html}{\out{</div>}}
+\subsection{\code{check_python$clone()}}{
+  The objects of this class are cloneable with this method.
+  \subsection{Usage}{
+    \if{html}{\out{<div class="r">}}
+    \preformatted{check_python$clone(deep = FALSE)}
+    \if{html}{\out{</div>}}
+  }
+  \subsection{Arguments}{
+    \if{html}{\out{<div class="arguments">}}
+    \describe{
+      \item{\code{deep}}{Whether to make a deep clone.}
+    }
+    \if{html}{\out{</div>}}
+  }
 }
 
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deep}}{Whether to make a deep clone.}
-}
-\if{html}{\out{</div>}}
-}
-}
 }
