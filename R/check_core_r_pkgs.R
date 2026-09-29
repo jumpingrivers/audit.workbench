@@ -36,9 +36,9 @@ testing_core_r_pkgs = function() {
 get_core_r_packages = function() {
   if (requireNamespace("rstudioapi", quietly = TRUE)) {
     core = rstudioapi::getRStudioPackageDependencies()$name
-  } else if (requireNamespace("rstudioapi", quietly = TRUE)) {
+  } else if (requireNamespace("rvest", quietly = TRUE)) {
     html = rvest::read_html(
-      "https://docs.posit.co/ide/server-pro/reference/r_package_dependencies.html"
+      "https://docs.posit.co/ide/server-pro/admin/reference/r_package_dependencies.html"
     ) #nolint
     cells = rvest::html_nodes(html, "td")
     values = purrr::map_chr(cells, rvest::html_text2)
