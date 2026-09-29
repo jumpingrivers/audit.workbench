@@ -1,3 +1,8 @@
+# audit.workbench 0.6.10 *2026-09-29*
+  * fix: check rvest is installed or code chunk never runs (#19)
+  * fix: Correction to URL containing required package list (#19)
+  * feat: Allow code to run outside of RStudio, but provide message when running outside RStudio
+
 # audit.workbench 0.6.9 *2026-06-15*
   * feat: Better R/Python detection
   * Bump roxygen2 version
