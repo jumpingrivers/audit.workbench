@@ -1,5 +1,5 @@
 check_posit_version = function() {
-  if (requireNamespace("rstudioapi", quietly = TRUE)) {
+  if (requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
     posit_version = rstudioapi::versionInfo()$long_version
   } else {
     cmd = system2("rstudio-server", args = "version", stdout = TRUE)
