@@ -1,7 +1,7 @@
 Type: Package
 Package: audit.workbench
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.6.12
+Version: 0.6.13
 Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
@@ -30,7 +30,6 @@ Imports:
 Suggests:
     reticulate,
     rstudioapi,
-    rvest,
     testthat (>= 3.0.0)
 Remotes:
     jumpingrivers/audit.base
