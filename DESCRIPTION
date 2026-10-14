@@ -30,7 +30,6 @@ Imports:
 Suggests:
     reticulate,
     rstudioapi,
-    rvest,
     testthat (>= 3.0.0)
 Remotes:
     jumpingrivers/audit.base
