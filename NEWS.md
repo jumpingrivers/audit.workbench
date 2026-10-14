@@ -1,3 +1,9 @@
+# audit.workbench 0.6.16
+
+## Bug fixes and minor improvements
+
+* Add an `air.toml`, so air formats with `=` assignment and 100-character lines.
+
 # audit.workbench 0.6.15
 
 ## New features
