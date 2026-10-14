@@ -6,8 +6,6 @@
   : Run UAT Checks
 - [`check_bioconductor`](https://jumpingrivers.github.io/audit.workbench/reference/check_bioconductor.md)
   : R6 classes
-- [`check_core_r_pkgs`](https://jumpingrivers.github.io/audit.workbench/reference/check_core_r_pkgs.md)
-  : R6 classes
 - [`check_cran`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
   [`check_quarto_beamer`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)
   [`check_quarto_docx`](https://jumpingrivers.github.io/audit.workbench/reference/check_cran.md)

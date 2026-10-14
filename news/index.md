@@ -1,5 +1,12 @@
 # Changelog
 
+## audit.workbench 0.6.13
+
+### Bug fixes and minor improvements
+
+- Remove the `core_r_pkgs` check, which always failed.
+  `check_sys_libs()` already covers system libraries (#19).
+
 ## audit.workbench 0.6.12
 
 ### Bug fixes and minor improvements
