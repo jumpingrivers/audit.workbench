@@ -1,3 +1,9 @@
+# audit.workbench 0.6.12
+
+## Bug fixes and minor improvements
+
+* Issues now use the Jumping Rivers organisation templates.
+
 # audit.workbench 0.6.11 *2026-10-13*
   * fix: `check_posit_version()` no longer errors outside RStudio when {rstudioapi} is installed
   * fix: `create_config()` referenced the old package name `jrHealthCheckWorkbench`
