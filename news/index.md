@@ -1,5 +1,13 @@
 # Changelog
 
+## audit.workbench 0.6.11 *2026-10-13*
+
+- fix: `check_posit_version()` no longer errors outside RStudio when
+  {rstudioapi} is installed
+- fix:
+  [`create_config()`](https://jumpingrivers.github.io/audit.workbench/reference/create_config.md)
+  referenced the old package name `jrHealthCheckWorkbench`
+
 ## audit.workbench 0.6.10 *2026-09-29*
 
 - fix: check rvest is installed or code chunk never runs (#19)
