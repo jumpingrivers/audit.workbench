@@ -1,5 +1,15 @@
 # Changelog
 
+## audit.workbench 0.6.17
+
+### New features
+
+- [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+  runs
+  [`audit.base::check_timezone()`](https://rdrr.io/pkg/audit.base/man/check_timezone.html),
+  and the report says whether R can determine the server’s timezone.
+  Requires audit.base 0.7.1 (#32).
+
 ## audit.workbench 0.6.16
 
 ### Bug fixes and minor improvements
