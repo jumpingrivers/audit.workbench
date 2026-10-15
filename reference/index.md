@@ -24,6 +24,8 @@
   : R6 classes
 - [`check_python_reticulate`](https://jumpingrivers.github.io/audit.workbench/reference/check_python_reticulate.md)
   : R6 classes
+- [`check_r_options`](https://jumpingrivers.github.io/audit.workbench/reference/check_r_options.md)
+  : R6 classes
 - [`types`](https://jumpingrivers.github.io/audit.workbench/reference/check_rmd_word.md)
   : R6 Quarto checks
 - [`create_config()`](https://jumpingrivers.github.io/audit.workbench/reference/create_config.md)

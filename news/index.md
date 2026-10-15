@@ -1,5 +1,12 @@
 # Changelog
 
+## audit.workbench 0.6.14
+
+### New features
+
+- `check_r_options` fails when the `HTTPUserAgent` or
+  `download.file.extra` R option is unset (#4).
+
 ## audit.workbench 0.6.13
 
 ### Bug fixes and minor improvements
