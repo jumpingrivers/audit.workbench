@@ -21,6 +21,7 @@ check = function(server, dir = ".", debug_level = 0:2) {
   check_list$audit_details = audit_details(server)
   check_list$server_headers = audit.base::check_server_headers(server)
   check_list$posit_version = check_posit_version()
+  check_list$timezone = audit.base::check_timezone()
   check_list$pro_drivers = check_posit_drivers(debug_level)
 
   check_list$sys_deps = check_sys_libs(debug_level)
