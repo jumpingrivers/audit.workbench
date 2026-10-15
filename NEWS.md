@@ -1,3 +1,9 @@
+# audit.workbench 0.6.17
+
+## New features
+
+* `check()` runs `audit.base::check_timezone()`, and the report says whether R can determine the server's timezone. Requires audit.base 0.7.1 (#32).
+
 # audit.workbench 0.6.16
 
 ## Bug fixes and minor improvements
