@@ -9,7 +9,7 @@ Description: Testing whether data scientists can do what they expect in
 License: file LICENSE
 URL: https://jumpingrivers.github.io/audit.workbench/
 Imports:
-    audit.base (>= 0.7.1),
+    audit.base (>= 0.7.2),
     BiocManager,
     cli,
     dplyr,
