@@ -1,6 +1,11 @@
 check_posit_drivers = function(debug_level) {
   cli::cli_h2("Checking Posit DB Drivers")
   installed_version = get_installed_posit_driver()
+  if (length(installed_version) > 1L) {
+    installed_version = installed_version[
+      order(package_version(installed_version), decreasing = TRUE)[1L]
+    ]
+  }
   latest_version = audit.base::get_posit_versions(type = "drivers")$version[1]
   upgrade = is.na(installed_version) ||
     (package_version(installed_version) < package_version(latest_version))
