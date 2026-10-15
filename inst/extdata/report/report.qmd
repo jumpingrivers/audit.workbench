@@ -43,6 +43,21 @@ This audit was run by user `r glue::glue("{audit_details$name}")`, using {audit.
 
 `r audit.base::get_quarto_posit_version_msg(out, "workbench")`
 
+```{r}
+#| echo: false
+#| output: asis
+# Audits run before 0.6.17 have no timezone result
+if (isTRUE(out$timezone)) {
+  cat("R can determine the server's timezone.\n")
+} else if (isFALSE(out$timezone)) {
+  cat(
+    "R can't determine the server's timezone.",
+    "Set the system timezone, or the `TZ` environment variable,",
+    "so that dates and times are correct.\n"
+  )
+}
+```
+
 ## Server Headings
 
 This audit examines the server headings of the Posit server (or the server sitting in front of Posit).
