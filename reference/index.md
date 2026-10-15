@@ -26,6 +26,8 @@
   : R6 classes
 - [`check_r_options`](https://jumpingrivers.github.io/audit.workbench/reference/check_r_options.md)
   : R6 classes
+- [`check_reticulate_r_versions`](https://jumpingrivers.github.io/audit.workbench/reference/check_reticulate_r_versions.md)
+  : R6 classes
 - [`types`](https://jumpingrivers.github.io/audit.workbench/reference/check_rmd_word.md)
   : R6 Quarto checks
 - [`check_verify_installation`](https://jumpingrivers.github.io/audit.workbench/reference/check_verify_installation.md)

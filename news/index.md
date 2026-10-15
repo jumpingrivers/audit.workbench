@@ -1,5 +1,13 @@
 # Changelog
 
+## audit.workbench 0.6.18
+
+### New features
+
+- `check_reticulate_r_versions` runs each R in `/opt/R` with its own
+  site settings, and fails if any lacks {reticulate} or has a
+  `RETICULATE_PYTHON` that is unset or not an executable file (#5).
+
 ## audit.workbench 0.6.17
 
 ### New features
