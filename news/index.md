@@ -1,5 +1,19 @@
 # Changelog
 
+## audit.workbench 0.6.16
+
+### Bug fixes and minor improvements
+
+- Add an `air.toml`, so air formats with `=` assignment and
+  100-character lines.
+
+## audit.workbench 0.6.15
+
+### New features
+
+- `check_verify_installation` runs `rstudio-server verify-installation`
+  and fails if it does (#6).
+
 ## audit.workbench 0.6.14
 
 ### New features
