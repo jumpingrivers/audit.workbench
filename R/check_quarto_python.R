@@ -42,7 +42,8 @@ find_python = function(root_dir = "/opt/python") {
     return("")
   }
   versions = numeric_version(basename(dirname(dirname(pythons))), strict = FALSE)
-  pythons[which.max(versions)]
+  # order() rather than which.max(), which can't sort versions before R 4.6
+  pythons[order(versions, decreasing = TRUE)[1]]
 }
 
 render_quarto_python = function(quarto_dir, debug_level, python = find_python()) {
