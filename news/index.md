@@ -1,5 +1,19 @@
 # Changelog
 
+## audit.workbench 0.6.19
+
+### New features
+
+- `check_quarto_python` builds a virtual environment from audit.base’s
+  Quarto Python document and renders it with the Jupyter engine. It uses
+  `python3` on the `PATH`, or the newest Python in `/opt/python`.
+  Requires audit.base 0.7.2 (#3).
+
+### Bug fixes and minor improvements
+
+- Remove the unused `inst/extdata/python` example, whose 2023 pins don’t
+  install on Python 3.14.
+
 ## audit.workbench 0.6.18
 
 ### New features
