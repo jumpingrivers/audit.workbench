@@ -32,7 +32,7 @@
   : R6 classes
 - [`types`](https://jumpingrivers.github.io/audit.workbench/reference/check_rmd_word.md)
   : R6 Quarto checks
-- [`check_verify_installation`](https://jumpingrivers.github.io/audit.workbench/reference/check_verify_installation.md)
+- [`check_test_config`](https://jumpingrivers.github.io/audit.workbench/reference/check_test_config.md)
   : R6 classes
 - [`create_config()`](https://jumpingrivers.github.io/audit.workbench/reference/create_config.md)
   : Create test config

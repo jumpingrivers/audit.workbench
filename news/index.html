@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">audit.workbench</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.20</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,6 +31,14 @@
 
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.6.20" id="auditworkbench-0620">audit.workbench 0.6.20<a class="anchor" aria-label="anchor" href="#auditworkbench-0620"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-and-minor-improvements-0-6-20">Bug fixes and minor improvements<a class="anchor" aria-label="anchor" href="#bug-fixes-and-minor-improvements-0-6-20"></a></h3>
+<ul><li>
+<code>check_verify_installation</code> is now <code>check_test_config</code>, and runs <code>rstudio-server test-config</code>. <code>verify-installation</code> refuses to run while the server is up, so the old check always failed inside a session. Use <code>test_config</code> in place of <code>verify_installation</code> in config files (#36).</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.6.19" id="auditworkbench-0619">audit.workbench 0.6.19<a class="anchor" aria-label="anchor" href="#auditworkbench-0619"></a></h2>
 <div class="section level3">

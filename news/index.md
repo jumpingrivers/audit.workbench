@@ -1,5 +1,15 @@
 # Changelog
 
+## audit.workbench 0.6.20
+
+### Bug fixes and minor improvements
+
+- `check_verify_installation` is now `check_test_config`, and runs
+  `rstudio-server test-config`. `verify-installation` refuses to run
+  while the server is up, so the old check always failed inside a
+  session. Use `test_config` in place of `verify_installation` in config
+  files (#36).
+
 ## audit.workbench 0.6.19
 
 ### New features
