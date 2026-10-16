@@ -25,21 +25,19 @@ Yes, I know the code is horrible - see above comments :)
 ```{r}
 #| echo: false
 # quarto render report.qmd -P input:output.rds
-library("lubridate", quietly = TRUE, warn.conflicts = FALSE)
 library("gt")
 library("audit.workbench")
 out = readRDS(params$input)
-audit_details = out$audit_details
 severe = "#f59d9a"
 moderate = "#f5cf9a"
 trivial = "#c0d1ed"
 audit_details = out$audit_details
-server_name = stringr::str_remove_all(audit_details$server, "(^http?s://|/$)")
+server_name = stringr::str_remove_all(audit_details$server, "(^https?://|/$)")
 ```
 
 ## Overview  (`r server_name`)
 
-This audit was run by user `r glue::glue("{audit_details$name}")`, using {audit.workbench} R package (version `r audit_details$version`).
+This audit was run by user `r audit_details$user`, using {audit.workbench} R package (version `r audit_details$version`).
 
 `r audit.base::get_quarto_posit_version_msg(out, "workbench")`
 
@@ -63,7 +61,7 @@ if (isTRUE(out$timezone)) {
 This audit examines the server headings of the Posit server (or the server sitting in front of Posit).
 It is important to note, that there may be cases where you may want to deviate from setting these
 headings. However, this is the exception and not the rule.
-The headings listed below follow the recommendations of [securityheaders.com](https://serverheaders.com/) and (to a certain extent)
+The headings listed below follow the recommendations of [securityheaders.com](https://securityheaders.com/) and (to a certain extent)
 Mozilla. Where the heading has not been set, we provide links to documentation.
 
 ```{r}
@@ -92,8 +90,7 @@ gt::gt(headers) |>
 
 ## System Dependencies
 
-Posit allows users to push dashboards and markdown documents.
-However, these applications contain R packages that have system level dependencies.
+Users install R packages on Workbench, and many of these packages have system level dependencies.
 This check tries to determine which R packages would fail to install.
 
 
@@ -154,18 +151,19 @@ gt::gt(software) |>
   )
 ```
 
-## Deployments
+## Checks
 
-This audit deploys a variety of applications, ranging from Shiny apps to quarto documents.
-The test determines if the application has been successful launched.
+This audit runs a set of checks, ranging from installing R packages to rendering Quarto documents.
+Each check records whether it passed, failed or was skipped.
 
 ```{r}
 #| echo: false
 deploy = audit.base::get_quarto_deploy(out)
 gt::gt(deploy) |>
-  gt::cols_label("context" = "Deployment", "time_taken" = "Time (secs)") |>
+  gt::cols_label("context" = "Check", "time_taken" = "Time (secs)") |>
   gt::cols_align("right", "time_taken") |>
   gt::cols_hide(c("passed", "group", "short")) |>
+  gt::tab_row_group(label = "Skipped", rows = which(is.na(deploy$passed))) |>
   gt::tab_row_group(label = "Failed", rows = which(!deploy$passed)) |>
   gt::tab_row_group(label = "Looks good", rows = which(deploy$passed)) |>
   gtExtras::gt_merge_stack(

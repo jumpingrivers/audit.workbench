@@ -29,6 +29,8 @@ Imports:
     withr,
     yaml
 Suggests:
+    gt,
+    gtExtras,
     reticulate,
     rstudioapi,
     testthat (>= 3.0.0)
