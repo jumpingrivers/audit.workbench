@@ -1,3 +1,9 @@
+# audit.workbench 0.6.26
+
+## Bug fixes and minor improvements
+
+* The pip check installs numpy into a temporary virtual environment, so it no longer changes the user's own Python. It also works where system pip is externally managed (PEP 668), and finds Python in `/opt/python` when `python3` isn't on the `PATH` (#39).
+
 # audit.workbench 0.6.25
 
 ## Bug fixes and minor improvements

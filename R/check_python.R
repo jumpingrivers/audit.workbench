@@ -44,24 +44,23 @@ check_python_reticulate = R6::R6Class(
   )
 )
 
-python_pip_tests = function() {
-  system('python3 -c "print(2+2)"', intern = TRUE)
+# Installs numpy into a temporary venv, so the user's own Python is never changed
+python_pip_tests = function(python = find_python()) {
+  if (!nzchar(python)) {
+    cli::cli_abort("Can't find Python: looked for python3 on the PATH and in /opt/python")
+  }
+  venv = withr::local_tempdir(pattern = "pip-venv-")
+  processx::run(python, c("-m", "venv", venv))
+  venv_python = file.path(venv, "bin", "python")
 
-  pip_version = processx::run("pip", "--version")$stdout
-  min_version = grepl("pip [2-3][0-9]", pip_version)
-  stopifnot("Pip failed to install " = min_version)
+  pip_version = processx::run(venv_python, c("-m", "pip", "--version"))$stdout
+  stopifnot("pip is older than version 20" = grepl("pip [2-9][0-9]", pip_version))
 
-  numpy = processx::run(
-    "pip",
-    args = c("install", "numpy", "--force-reinstall")
+  processx::run(
+    venv_python,
+    c("-m", "pip", "install", "--quiet", "--disable-pip-version-check", "numpy")
   )
-  withr::defer(processx::run("pip", args = c("uninstall", "numpy", "--yes")))
-  has_installed = grepl(
-    numpy$stdout,
-    pattern = "Successfully installed",
-    fixed = TRUE
-  )
-  stopifnot("Pip failed to install " = has_installed)
+  processx::run(venv_python, c("-c", "import numpy"))
   invisible(TRUE)
 }
 
