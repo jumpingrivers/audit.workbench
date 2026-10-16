@@ -1,12 +1,31 @@
-test_that("find_python() falls back to the newest Python in /opt/python", {
-  root = withr::local_tempdir()
+test_that("find_python() prefers the newest Python in /opt/python, then the PATH", {
+  opt = withr::local_tempdir()
   for (v in c("3.9.1", "3.12.4", "3.10.2", "current")) {
-    dir.create(file.path(root, v, "bin"), recursive = TRUE)
-    file.create(file.path(root, v, "bin", "python3"))
+    dir.create(file.path(opt, v, "bin"), recursive = TRUE)
+    file.create(file.path(opt, v, "bin", "python3"))
   }
-  withr::local_envvar(PATH = "")
-  expect_identical(find_python(root), file.path(root, "3.12.4", "bin", "python3"))
-  expect_identical(find_python(withr::local_tempdir()), "")
+  path = withr::local_tempdir()
+  file.create(file.path(path, "python3"))
+  Sys.chmod(file.path(path, "python3"), "755")
+  empty = withr::local_tempdir()
+
+  cases = list(
+    list(root = opt, path = path, expected = file.path(opt, "3.12.4", "bin", "python3")),
+    list(root = empty, path = path, expected = file.path(path, "python3")),
+    list(root = empty, path = empty, expected = "")
+  )
+  for (case in cases) {
+    withr::with_envvar(c(PATH = case$path), {
+      expect_identical(find_python(case$root), case$expected)
+    })
+  }
+})
+
+test_that("make_venv() names the Python that can't make a virtual environment", {
+  python = file.path(withr::local_tempdir(), "python3")
+  writeLines(c("#!/bin/sh", "echo 'ensurepip is not available' >&2", "exit 1"), python)
+  Sys.chmod(python, "755")
+  expect_error(make_venv(python, withr::local_tempdir()), "Can't make a virtual environment with")
 })
 
 test_that("render_quarto_python() needs a Python", {

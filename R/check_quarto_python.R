@@ -29,33 +29,40 @@ check_quarto_python = R6::R6Class(
   )
 )
 
-# python3 on the PATH, else the newest Python in /opt/python, where Posit installs it
+# The newest Python in /opt/python, where Posit installs it, else python3 on the PATH.
+# A distribution's python3 may lack venv (python3-venv on Debian and Ubuntu).
 find_python = function(root_dir = "/opt/python") {
-  python = unname(Sys.which("python3"))
-  if (nzchar(python)) {
-    return(python)
-  }
   pythons = Sys.glob(file.path(root_dir, "*", "bin", "python3"))
   versions = basename(dirname(dirname(pythons)))
   pythons = pythons[grepl("^[0-9]+\\.[0-9]+", versions)]
   if (length(pythons) == 0L) {
-    return("")
+    return(unname(Sys.which("python3")))
   }
   versions = numeric_version(basename(dirname(dirname(pythons))), strict = FALSE)
   # order() rather than which.max(), which can't sort versions before R 4.6
   pythons[order(versions, decreasing = TRUE)[1]]
 }
 
+make_venv = function(python, venv) {
+  made = processx::run(python, c("-m", "venv", venv), error_on_status = FALSE)
+  if (made$status != 0L) {
+    cli::cli_abort(c(
+      "Can't make a virtual environment with {.path {python}}",
+      "i" = trimws(made$stderr)
+    ))
+  }
+  invisible(file.path(venv, "bin", "python"))
+}
+
 render_quarto_python = function(quarto_dir, debug_level, python = find_python()) {
   if (!nzchar(python)) {
-    cli::cli_abort("Can't find Python: looked for python3 on the PATH and in /opt/python")
+    cli::cli_abort("Can't find Python: looked in /opt/python and for python3 on the PATH")
   }
   venv = file.path(tempdir(), "quarto-python-venv")
   on.exit({
     if (debug_level < 2L && fs::dir_exists(venv)) fs::dir_delete(venv)
   }) #nolint
-  processx::run(python, c("-m", "venv", venv))
-  venv_python = file.path(venv, "bin", "python")
+  venv_python = make_venv(python, venv)
   processx::run(
     venv_python,
     c("-m", "pip", "install", "--quiet", "-r", file.path(quarto_dir, "requirements.txt"))
