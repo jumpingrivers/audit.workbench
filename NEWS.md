@@ -1,3 +1,9 @@
+# audit.workbench 0.6.25
+
+## Bug fixes and minor improvements
+
+* `check()` no longer stops outside the RStudio IDE when `rstudio-server` isn't on the `PATH`. It also looks in `/usr/lib/rstudio-server/bin`, and otherwise reports the Workbench version as unknown. Requires audit.base 0.7.8 (#38).
+
 # audit.workbench 0.6.24
 
 ## Bug fixes and minor improvements
