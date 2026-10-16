@@ -50,7 +50,7 @@ render_quarto = function(quarto_dir, debug_level) {
 
   tmp_dir = file.path(tempdir(), "quarto")
   on.exit({
-    if (fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)
+    if (debug_level < 2L && fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)
   }) #nolint
   dir.create(tmp_dir, showWarnings = FALSE)
   lapply(list.files(quarto_dir, full.names = TRUE), function(f) {

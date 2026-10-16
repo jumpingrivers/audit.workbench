@@ -7,13 +7,13 @@
 Check classes
 }
 \section{Super classes}{
-\code{\link[audit.base:logger]{audit.base::logger}} -> \code{\link[audit.base:base_check]{audit.base::base_check}} -> \code{check_python}
+\code{\link[audit.base:logger]{audit.base::logger}} -> \code{\link[audit.base:base_check]{audit.base::base_check}} -> \code{check_python_pip}
 }
 \section{Methods}{
 \subsection{Public methods}{
   \itemize{
-    \item \href{#method-check_python-check}{\code{check_python$check()}}
-    \item \href{#method-check_python-clone}{\code{check_python$clone()}}
+    \item \href{#method-check_python_pip-check}{\code{check_python_pip$check()}}
+    \item \href{#method-check_python_pip-clone}{\code{check_python_pip$clone()}}
   }
 }
 \if{html}{\out{<details open><summary>Inherited methods</summary>
@@ -26,13 +26,13 @@ Check classes
 </ul>
 </details>}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-check_python-check"></a>}}
-\if{latex}{\out{\hypertarget{method-check_python-check}{}}}
-\subsection{\code{check_python$check()}}{
+\if{html}{\out{<a id="method-check_python_pip-check"></a>}}
+\if{latex}{\out{\hypertarget{method-check_python_pip-check}{}}}
+\subsection{\code{check_python_pip$check()}}{
   Checks python pip install
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{check_python$check(debug_level)}
+    \preformatted{check_python_pip$check(debug_level)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{
@@ -45,13 +45,13 @@ Check classes
 }
 
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-check_python-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-check_python-clone}{}}}
-\subsection{\code{check_python$clone()}}{
+\if{html}{\out{<a id="method-check_python_pip-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-check_python_pip-clone}{}}}
+\subsection{\code{check_python_pip$clone()}}{
   The objects of this class are cloneable with this method.
   \subsection{Usage}{
     \if{html}{\out{<div class="r">}}
-    \preformatted{check_python$clone(deep = FALSE)}
+    \preformatted{check_python_pip$clone(deep = FALSE)}
     \if{html}{\out{</div>}}
   }
   \subsection{Arguments}{

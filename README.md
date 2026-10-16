@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# audit.connect
+# audit.workbench
 
 <!-- badges: start -->
 
@@ -15,9 +15,10 @@ This checks that Posit Workbench has been correctly installed.
 To install the R package, run
 
 ``` r
-install.packages('audit.workbench', 
-                 repos = c('https://jumpingrivers.r-universe.dev', 
-                           'https://cloud.r-project.org'))
+install.packages(
+  "audit.workbench",
+  repos = c('https://jumpingrivers.r-universe.dev', options("repos")$repos)
+)
 ```
 
 ## Usage

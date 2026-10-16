@@ -7,7 +7,7 @@
 check(server, dir = ".", debug_level = 0:2)
 }
 \arguments{
-\item{server}{Posit Workbench server. If NULL, use the ENV variable WORKBENCH_SERVER}
+\item{server}{URL of the Posit Workbench server}
 
 \item{dir}{directory location of the the config file}
 

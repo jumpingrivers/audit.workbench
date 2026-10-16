@@ -6,10 +6,10 @@
 \alias{check_rmd_word}
 \alias{check_rmd_html}
 \alias{check_rmd_pdf}
-\title{R6 Quarto checks}
+\title{R6 R Markdown checks}
 \usage{
 types
 }
 \description{
-A short description...
+Check that R Markdown can render Word, HTML and PDF documents.
 }
