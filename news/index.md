@@ -1,5 +1,12 @@
 # Changelog
 
+## audit.workbench 0.6.29
+
+### Bug fixes and minor improvements
+
+- The pkgdown workflow uses `actions/checkout@v5`
+  (jumpingrivers/audit.base#64).
+
 ## audit.workbench 0.6.28
 
 ### Bug fixes and minor improvements
