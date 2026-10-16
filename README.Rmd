@@ -40,3 +40,21 @@ Running the test is straightforward
 library("audit.workbench")
 check(server = "https://www.server.name/")
 ```
+
+## Rendering the report
+
+Save the output of `check()`, then render the Quarto report that comes with the package.
+The report needs {gt} and {gtExtras}, so install those first.
+
+```{r, eval = FALSE}
+out = check(server = "https://www.server.name/")
+saveRDS(out, "auditworkbench.rds")
+
+install.packages(c("gt", "gtExtras"))
+report = system.file("extdata", "report", "report.qmd", package = "audit.workbench")
+file.copy(report, ".")
+quarto::quarto_render(
+  "report.qmd",
+  execute_params = list(input = normalizePath("auditworkbench.rds"))
+)
+```

@@ -47,11 +47,10 @@ check_python_reticulate = R6::R6Class(
 # Installs numpy into a temporary venv, so the user's own Python is never changed
 python_pip_tests = function(python = find_python()) {
   if (!nzchar(python)) {
-    cli::cli_abort("Can't find Python: looked for python3 on the PATH and in /opt/python")
+    cli::cli_abort("Can't find Python: looked in /opt/python and for python3 on the PATH")
   }
   venv = withr::local_tempdir(pattern = "pip-venv-")
-  processx::run(python, c("-m", "venv", venv))
-  venv_python = file.path(venv, "bin", "python")
+  venv_python = make_venv(python, venv)
 
   pip_version = processx::run(venv_python, c("-m", "pip", "--version"))$stdout
   stopifnot("pip is older than version 20" = grepl("pip [2-9][0-9]", pip_version))
