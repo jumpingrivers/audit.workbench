@@ -13,7 +13,7 @@ check(server, dir = ".", debug_level = 0:2)
 
 - server:
 
-  Posit Workbench server. If NULL, use the ENV variable WORKBENCH_SERVER
+  URL of the Posit Workbench server
 
 - dir:
 

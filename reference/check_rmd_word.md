@@ -1,6 +1,6 @@
-# R6 Quarto checks
+# R6 R Markdown checks
 
-A short description...
+Check that R Markdown can render Word, HTML and PDF documents.
 
 ## Usage
 

@@ -1,5 +1,19 @@
 # Changelog
 
+## audit.workbench 0.6.23
+
+### Bug fixes and minor improvements
+
+- `debug_level = 2` keeps the Quarto and R Markdown render folders, as
+  documented (#45).
+- `check_python_pip` and `check_python_reticulate` have their own R6
+  class names; both were `check_python` (#45).
+- [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+  no longer claims a `NULL` server falls back to `WORKBENCH_SERVER`
+  (#45).
+- Fix the `check_rmd` help title and description, import R6 and re-knit
+  README.md (#45).
+
 ## audit.workbench 0.6.22
 
 ### Bug fixes and minor improvements

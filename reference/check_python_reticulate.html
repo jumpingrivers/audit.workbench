@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">audit.workbench</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.22</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.23</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,25 +39,25 @@
 
     <div class="section level2">
     <h2 id="super-classes">Super classes<a class="anchor" aria-label="anchor" href="#super-classes"></a></h2>
-    <p><code><a href="https://rdrr.io/pkg/audit.base/man/logger.html" class="external-link">audit.base::logger</a></code> -&gt; <code><a href="https://rdrr.io/pkg/audit.base/man/base_check.html" class="external-link">audit.base::base_check</a></code> -&gt; <code>check_python</code></p>
+    <p><code><a href="https://rdrr.io/pkg/audit.base/man/logger.html" class="external-link">audit.base::logger</a></code> -&gt; <code><a href="https://rdrr.io/pkg/audit.base/man/base_check.html" class="external-link">audit.base::base_check</a></code> -&gt; <code>check_python_reticulate</code></p>
     </div>
     <div class="section level2">
     <h2 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h2>
 
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
-<p></p><ul><li><p><a href="#method-check_python-check"><code>check_python$check()</code></a></p></li>
-<li><p><a href="#method-check_python-clone"><code>check_python$clone()</code></a></p></li>
-</ul></div><p><details open><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="get_log"><a href="../../audit.base/html/logger.html#method-logger-get_log"><code>audit.base::logger$get_log()</code></a></span></li>
-  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="start_logger"><a href="../../audit.base/html/logger.html#method-logger-start_logger"><code>audit.base::logger$start_logger()</code></a></span></li>
-  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="stop_logger"><a href="../../audit.base/html/logger.html#method-logger-stop_logger"><code>audit.base::logger$stop_logger()</code></a></span></li>
-  <li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="info"><a href="../../audit.base/html/base_check.html#method-base_check-info"><code>audit.base::base_check$info()</code></a></span></li>
-  <li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="initialize"><a href="../../audit.base/html/base_check.html#method-base_check-initialize"><code>audit.base::base_check$initialize()</code></a></span></li>
-</ul></details></p><hr><a id="method-check_python-check"></a><div class="section">
-<h3 id="check-python-check-"><code>check_python$check()</code><a class="anchor" aria-label="anchor" href="#check-python-check-"></a></h3>
+<p></p><ul><li><p><a href="#method-check_python_reticulate-check"><code>check_python_reticulate$check()</code></a></p></li>
+<li><p><a href="#method-check_python_reticulate-clone"><code>check_python_reticulate$clone()</code></a></p></li>
+</ul></div><p><details open><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="get_log"><a href="https://rdrr.io/pkg/audit.base/man/logger.html#method-get_log"><code>audit.base::logger$get_log()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="start_logger"><a href="https://rdrr.io/pkg/audit.base/man/logger.html#method-start_logger"><code>audit.base::logger$start_logger()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="logger" data-id="stop_logger"><a href="https://rdrr.io/pkg/audit.base/man/logger.html#method-stop_logger"><code>audit.base::logger$stop_logger()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="info"><a href="https://rdrr.io/pkg/audit.base/man/base_check.html#method-info"><code>audit.base::base_check$info()</code></a></span></li>
+  <li><span class="pkg-link" data-pkg="audit.base" data-topic="base_check" data-id="initialize"><a href="https://rdrr.io/pkg/audit.base/man/base_check.html#method-initialize"><code>audit.base::base_check$initialize()</code></a></span></li>
+</ul></details></p><hr><a id="method-check_python_reticulate-check"></a><div class="section">
+<h3 id="check-python-reticulate-check-"><code>check_python_reticulate$check()</code><a class="anchor" aria-label="anchor" href="#check-python-reticulate-check-"></a></h3>
 <p>Checks python can be used via reticulate</p><div class="section">
 <h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">check_python</span><span class="op">$</span><span class="fu">check</span><span class="op">(</span><span class="va">debug_level</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">check_python_reticulate</span><span class="op">$</span><span class="fu">check</span><span class="op">(</span><span class="va">debug_level</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div><p></p><div class="section">
 <h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>debug_level</code></dt>
@@ -69,11 +69,11 @@
 
 </div>
 
-<p></p><hr><a id="method-check_python-clone"></a><div class="section">
-<h3 id="check-python-clone-"><code>check_python$clone()</code><a class="anchor" aria-label="anchor" href="#check-python-clone-"></a></h3>
+<p></p><hr><a id="method-check_python_reticulate-clone"></a><div class="section">
+<h3 id="check-python-reticulate-clone-"><code>check_python_reticulate$clone()</code><a class="anchor" aria-label="anchor" href="#check-python-reticulate-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
 <h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">check_python</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">check_python_reticulate</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div><p></p><div class="section">
 <h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
