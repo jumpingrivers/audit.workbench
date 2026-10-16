@@ -1,5 +1,13 @@
 # Changelog
 
+## audit.workbench 0.6.21
+
+### Bug fixes and minor improvements
+
+- `check_posit_drivers()` compares the highest installed driver version
+  when multiple versions are present, and reports none found as not
+  installed (#45).
+
 ## audit.workbench 0.6.20
 
 ### Bug fixes and minor improvements
