@@ -1,5 +1,11 @@
 # Changelog
 
+## audit.workbench 0.6.27
+
+### Bug fixes and minor improvements
+
+- The package is MIT licensed (jumpingrivers/audit.base#63).
+
 ## audit.workbench 0.6.26
 
 ### Bug fixes and minor improvements

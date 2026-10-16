@@ -1,5 +1,4 @@
 # License
 
-    Proprietary
-
-    Do not distribute outside of Jumping Rivers Ltd.
+    YEAR: 2026
+    COPYRIGHT HOLDER: Jumping Rivers Ltd
