@@ -6,7 +6,7 @@ Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
     Posit Workbench.
-License: file LICENSE
+License: MIT + file LICENSE
 URL: https://jumpingrivers.github.io/audit.workbench/
 Imports:
     audit.base (>= 0.7.8),
