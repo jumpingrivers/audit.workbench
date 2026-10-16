@@ -1,5 +1,18 @@
 # Changelog
 
+## audit.workbench 0.6.22
+
+### Bug fixes and minor improvements
+
+- [`check()`](https://jumpingrivers.github.io/audit.workbench/reference/check.md)
+  no longer stops when `/opt/R`, `/opt/python` or `/opt/quarto` is
+  missing; it reports the folder as not found (#37).
+- `check_file_permissions` fails when new files in the home directory
+  are writable by other users, or not readable and writable by their
+  owner. It no longer deletes `~/tmp-file-creating.txt` (#42).
+- `check_cran` and `check_github` install their test packages into a
+  temporary library, so the user’s library is left as it was (#43).
+
 ## audit.workbench 0.6.21
 
 ### Bug fixes and minor improvements
