@@ -1,3 +1,9 @@
+# audit.workbench 0.6.24
+
+## Bug fixes and minor improvements
+
+* CI uses `actions/checkout@v5`, read-only permissions, and installs Quarto, so the Quarto Python test runs on CI (#45).
+
 # audit.workbench 0.6.23
 
 ## Bug fixes and minor improvements
