@@ -23,14 +23,16 @@ check_file_permissions = R6::R6Class(
 )
 
 testing_file_permissions = function() {
-  fname = file.path("~", "tmp-file-creating.txt")
-  withr::with_file(fname, {
-    fs::file_create(fname)
-    stopifnot("file does not exist" = file.exists(fname))
-    permissions_on_file = file.mode(fname)
-    # Convert the string to an integer, so that we can use it to make comparisons:
-    file_permissions = strtoi(permissions_on_file)
-    stopifnot("File permissions incorrect" = file_permissions >= 600)
-  })
+  fname = withr::local_tempfile(tmpdir = path.expand("~"))
+  file.create(fname)
+  stopifnot("file does not exist" = file.exists(fname))
+  # file.mode() is octal: the owner must read and write, and other users must not write
+  mode = as.integer(file.mode(fname))
+  owner_rw = strtoi("600", 8L)
+  other_w = strtoi("002", 8L)
+  stopifnot(
+    "New files can't be read and written by their owner" = bitwAnd(mode, owner_rw) == owner_rw
+  )
+  stopifnot("New files can be written by other users" = bitwAnd(mode, other_w) == 0L)
   invisible(TRUE)
 }
