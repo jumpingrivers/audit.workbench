@@ -72,6 +72,7 @@ check_github = R6::R6Class(
 )
 
 testing_cran = function() {
+  local_temporary_library()
   pkg_name = "drat"
   is_installed = install_packages(pkg_name, quiet = TRUE)
   stopifnot("pkg unable to be installed" = is_installed)
@@ -79,6 +80,7 @@ testing_cran = function() {
 }
 
 testing_github = function() {
+  local_temporary_library()
   installed_pkg = remotes::install_github(
     "jumpingrivers/datasauRus",
     quiet = TRUE,
@@ -97,6 +99,12 @@ testing_bioconductor = function() {
     stopifnot("Unable to access bioconductor repo" = !httr::http_error(repo))
   })
   invisible(TRUE)
+}
+
+# Install into a library that is deleted afterwards, leaving the user's library as it was
+local_temporary_library = function(.local_envir = parent.frame()) {
+  lib = withr::local_tempdir(.local_envir = .local_envir)
+  withr::local_libpaths(lib, action = "prefix", .local_envir = .local_envir)
 }
 
 install_packages = function(pkgs, quiet = FALSE) {
