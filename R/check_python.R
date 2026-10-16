@@ -3,7 +3,7 @@
 #' Check classes
 #' @export
 check_python_pip = R6::R6Class(
-  "check_python",
+  "check_python_pip",
   inherit = audit.base::base_check,
   public = list(
     #' @description Checks python pip install
@@ -26,7 +26,7 @@ check_python_pip = R6::R6Class(
 #' Check classes
 #' @export
 check_python_reticulate = R6::R6Class(
-  "check_python",
+  "check_python_reticulate",
   inherit = audit.base::base_check,
   public = list(
     #' @description Checks python can be used via reticulate

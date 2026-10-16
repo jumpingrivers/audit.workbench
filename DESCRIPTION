@@ -19,6 +19,7 @@ Imports:
     processx,
     purrr,
     quarto (>= 1.3),
+    R6,
     remotes,
     rlang,
     rmarkdown,

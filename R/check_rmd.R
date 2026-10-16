@@ -2,10 +2,10 @@
 #' @rawNamespace export(check_rmd_html)
 #' @rawNamespace export(check_rmd_pdf)
 #' @name check_rmd
-#' @title R6 Quarto checks
+#' @title R6 R Markdown checks
 #' @rdname check_rmd_word
 #' @description
-#' A short description...
+#' Check that R Markdown can render Word, HTML and PDF documents.
 #'
 #' @aliases check_rmd_word check_rmd_html check_rmd_pdf
 types = c("word", "html", "pdf")
@@ -49,7 +49,7 @@ for (type in types) {
 render_rmd = function(rmd_dir, debug_level) {
   tmp_dir = file.path(tempdir(), "rmd")
   on.exit({
-    if (fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)
+    if (debug_level < 2L && fs::dir_exists(tmp_dir)) fs::dir_delete(tmp_dir)
   }) #nolint
 
   dir.create(tmp_dir, showWarnings = FALSE)
