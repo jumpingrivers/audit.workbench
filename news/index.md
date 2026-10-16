@@ -1,5 +1,19 @@
 # Changelog
 
+## audit.workbench 0.6.28
+
+### Bug fixes and minor improvements
+
+- The report names the user who ran the audit, lists skipped checks in
+  their own group, and strips `http://` from the server name. Its
+  wording no longer comes from Connect, the securityheaders.com link
+  points at securityheaders.com, `gt` and `gtExtras` are in Suggests,
+  and the README says how to render it (#40).
+- The Quarto Python and pip checks prefer the newest Python in
+  `/opt/python` over `python3` on the `PATH`, which on Debian and Ubuntu
+  can’t make a virtual environment without `python3-venv`. If a virtual
+  environment can’t be made, the error names the Python it tried (#41).
+
 ## audit.workbench 0.6.27
 
 ### Bug fixes and minor improvements

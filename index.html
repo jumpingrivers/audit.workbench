@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">audit.workbench</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.27</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.28</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,6 +68,22 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://jumpingrivers.github.io/audit.workbench/">"audit.workbench"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/check.html">check</a></span><span class="op">(</span>server <span class="op">=</span> <span class="st">"https://www.server.name/"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="rendering-the-report">Rendering the report<a class="anchor" aria-label="anchor" href="#rendering-the-report"></a>
+</h2>
+<p>Save the output of <code><a href="reference/check.html">check()</a></code>, then render the Quarto report that comes with the package. The report needs {gt} and {gtExtras}, so install those first.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out</span> <span class="op">=</span> <span class="fu"><a href="reference/check.html">check</a></span><span class="op">(</span>server <span class="op">=</span> <span class="st">"https://www.server.name/"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">out</span>, <span class="st">"auditworkbench.rds"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"gt"</span>, <span class="st">"gtExtras"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">report</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"report"</span>, <span class="st">"report.qmd"</span>, package <span class="op">=</span> <span class="st">"audit.workbench"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">report</span>, <span class="st">"."</span><span class="op">)</span></span>
+<span><span class="fu">quarto</span><span class="fu">::</span><span class="fu"><a href="https://quarto-dev.github.io/quarto-r/reference/quarto_render.html" class="external-link">quarto_render</a></span><span class="op">(</span></span>
+<span>  <span class="st">"report.qmd"</span>,</span>
+<span>  execute_params <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/normalizePath.html" class="external-link">normalizePath</a></span><span class="op">(</span><span class="st">"auditworkbench.rds"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
