@@ -1,12 +1,12 @@
 Type: Package
 Package: audit.workbench
 Title: RStudio/Workbench User Acceptance Tests
-Version: 0.6.26
+Version: 0.6.27
 Authors@R:
     person("Jumping", "Rivers", , "info@jumpingrivers.com", role = c("aut", "cre"))
 Description: Testing whether data scientists can do what they expect in
     Posit Workbench.
-License: file LICENSE
+License: MIT + file LICENSE
 URL: https://jumpingrivers.github.io/audit.workbench/
 Imports:
     audit.base (>= 0.7.8),
